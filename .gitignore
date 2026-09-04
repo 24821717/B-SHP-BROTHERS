@@ -1,0 +1,18 @@
+# ---- Material fuente pesado: se queda en local, no va al repo ----
+# (los originales del Drive pesan ~600 MB y GitHub rechaza archivos >100 MB;
+#  en web/assets/video/ están las versiones web ya optimizadas)
+contenido drive/
+contenido/
+AGENTIALABS_TOKENIZACION.pdf
+
+# ---- Brief interno del cliente ----
+# El repo es público. Si lo pasas a privado, borra esta línea para versionarlo.
+fer.txt
+
+# ---- Sistema ----
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.netlify/
+node_modules/
