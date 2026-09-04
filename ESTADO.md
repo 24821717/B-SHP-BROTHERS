@@ -1,7 +1,10 @@
 # ESTADO — B-SHP BROTHERS · /thegame
 
 **Última actualización:** 2026-09-04
-**Estado:** v1 lista para pasarle la propuesta al cliente (Fer). Sin publicar.
+**Estado:** v1 en GitHub, lista para desplegar en Netlify y enseñarle a Fer.
+
+- **Repo:** https://github.com/24821717/B-SHP-BROTHERS (público, rama `main`)
+- **Netlify:** pendiente de conectar (ver más abajo). Config ya lista en `netlify.toml`.
 
 ---
 
@@ -35,10 +38,17 @@ FER PROYECT/
 
 ## Cómo verla
 
+**En local:**
 ```bash
 cd "/home/camilo23/FER PROYECT/web" && python3 -m http.server 3010
 ```
 → http://localhost:3010/thegame/
+
+**Publicar en Netlify** (una sola vez; después se despliega solo en cada `git push`):
+1. app.netlify.com → *Add new site* → *Import an existing project* → GitHub
+2. Elegir el repo `24821717/B-SHP-BROTHERS`
+3. No tocar nada: Netlify lee `netlify.toml` (publica `web/`, sin build) → *Deploy*
+4. La URL para Fer será `https://<nombre>.netlify.app/thegame`
 
 ## Pendiente
 
@@ -48,4 +58,6 @@ cd "/home/camilo23/FER PROYECT/web" && python3 -m http.server 3010
 - [ ] Links reales de Términos, Privacidad, Contacto y redes sociales (hoy `#`).
 - [ ] Probar el checkout de Hotmart en el dominio real (el widget abre modal sólo en
       dominio publicado; en localhost puede caer al fallback de enlace directo).
+- [ ] Si se quiere versionar también el brief (`fer.txt`) y los originales del Drive,
+      pasar el repo a **privado** primero (Netlify funciona igual con repos privados).
 - [ ] Segunda fase: la home `bshpbrothers.com` completa (hoy es un placeholder).
