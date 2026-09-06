@@ -1,6 +1,6 @@
 # Netlify — B-SHP BROTHERS
 # Sitio estático: no hay build. Se publica la carpeta web/ tal cual.
-#   /          → web/index.html          (placeholder de la home)
+#   /          → web/index.html          (la HOME institucional)
 #   /thegame   → web/thegame/index.html  (la sales page)
 
 [build]

@@ -5,6 +5,15 @@ contenido drive/
 contenido/
 AGENTIALABS_TOKENIZACION.pdf
 
+# ---- Material fuente de la HOME (pesa ~700 MB) ----
+pagina ppal/
+
+# ---- Feedback del cliente en capturas (material interno) ----
+RECOMENDACIONES/
+
+# ---- Assets originales que se sustituyeron (respaldo local) ----
+originales-sustituidos/
+
 # ---- Brief interno del cliente ----
 # El repo es público. Si lo pasas a privado, borra esta línea para versionarlo.
 fer.txt
