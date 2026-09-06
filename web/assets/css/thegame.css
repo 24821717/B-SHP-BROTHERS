@@ -331,7 +331,7 @@ a.hotmart-fb.hotmart__button-checkout.btn{
 .player.is-playing .player__btn,.player.is-playing .player__poster{opacity:0;pointer-events:none}
 .player__deco{position:absolute;inset:-4.6% -3.4%;pointer-events:none;z-index:3;opacity:.95}
 /* El marco manda: el vídeo se mete DENTRO de su ventana, no debajo del marco.
-   Medidas tomadas sobre frame.png (1600x900): hueco en 10.5% 19.6% 80% 66.2%. */
+   Medidas tomadas sobre frame-v2.png (1600x900): hueco en 10.5% 19.6% 80% 66.2%. */
 .player--marco .player__stage{aspect-ratio:1600/900}
 .player--marco .player__deco{inset:0;width:100%;height:100%;opacity:1}
 .player--marco .player__frame{

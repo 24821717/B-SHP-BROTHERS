@@ -6,11 +6,31 @@
 [build]
   publish = "web"
 
-# Cache larga para los assets (imágenes, video, css, js)
+# Los vídeos sí van con caché larga: pesan mucho y, cuando cambian, cambian de
+# nombre.
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/video/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Imágenes, CSS y JS NO. Aquí se cachearon un año con el nombre de siempre y el
+# cliente siguió viendo el logo viejo —con su caja negra— después de arreglarlo.
+# Mientras la web esté en revisión, que el navegador pregunte siempre: con ETag
+# la respuesta es un 304 y no cuesta nada.
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 # El HTML siempre fresco, para que Fer vea los cambios al recargar
 [[headers]]
