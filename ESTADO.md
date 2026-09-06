@@ -1,11 +1,14 @@
 # ESTADO — B-SHP BROTHERS
 
 **Última actualización:** 2026-09-06
-**Estado:** las **dos** páginas construidas — la HOME (`/`) y la sales page (`/thegame`).
-Pendiente: que Marcela las revise y que Fer confirme las reservas.
+**Estado:** las **dos** páginas construidas y **PUBLICADAS** — la HOME (`/`) y la sales page
+(`/thegame`). Pendiente: que Marcela las revise y que Fer confirme las reservas.
 
+- **En vivo:** https://b-shopbrothers.netlify.app (home) ·
+  https://b-shopbrothers.netlify.app/thegame/
 - **Repo:** https://github.com/24821717/B-SHP-BROTHERS (público, rama `main`)
-- **Netlify:** pendiente de conectar. Config lista en `netlify.toml`.
+- **Netlify:** conectado y desplegando solo en cada `git push` a `main`.
+  **Falta renombrar el sitio**: `b-shopbrothers` → `bshpbrothers` (nota nº 1 de Fer).
 
 ---
 
