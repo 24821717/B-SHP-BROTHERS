@@ -128,3 +128,31 @@ Paleta tomada del **Personaje Maestro v1.0**:
 World / Culture · Brothers / Community · Products · CTA "ENTRA AL JUEGO" → `/thegame`.
 Hoy hay un placeholder con el mismo lenguaje visual en `web/index.html`, y la referencia
 que mandaste (`WhatsApp Image 2026-09-03`) ya está incorporada al criterio de diseño.
+
+---
+
+## 8. Ronda de correcciones del cliente · 2026-09-06
+
+Las siete notas que Fer mandó en `RECOMENDACIONES/`, una por una, y qué se hizo con cada una.
+
+| # | Nota del cliente | Qué se hizo |
+|---|---|---|
+| 1 | *"Bshop es bshp sin la O"* | En el código no había ni una sola aparición de «bshop»: el error está **en el nombre del sitio de Netlify** (`b-shopbrothers.netlify.app`). Se renombra en Netlify → *Site configuration › Change site name* → `bshpbrothers`. **No es algo que se arregle en el repo.** |
+| 2 | *"…y dejaría este completo con el logo"* (círculo sobre el emblema oveja+mundo) | Se sustituyó `logo-emblem.png` —que estaba **recortado por abajo**— por el asset oficial completo `LOGOTRANSP.png` (oveja + mundo + lockup «B-SHP BROTHERS»), ya transparente. Es el favicon y el logo grande del splash de la home. |
+| 3 | *"Si puedes quítale el fondo"* (logo del nav) | El `logo-wordmark.png` traía una **caja negra pegada**. Se regeneró desde `TIPOGRAFIA.png`, que sí es transparente. De paso se quitó el `mix-blend-mode:screen` del CSS, que era el apaño que existía sólo para disimular esa caja. |
+| 4 | *"estos en teoría son transp — si no REMOVE FONDO"* | Comprobados uno a uno con `ffprobe`: `LOGOTRANSP.png` y `TIPOGRAFIA.png` **sí** tenían alfa; `LOGOBSHP.png` no (por eso se descartó). Y apareció uno que nadie había visto: **`lockup-thegame.png` llevaba el cuadriculado gris de transparencia *pintado encima*** — se veía como un tablero de ajedrez detrás del logo en dos sitios de la página. Se recortó el fondo por luminancia + saturación. |
+| 5 | *"Este… centrar bien el video dentro del marco"* | El marco dorado se dibujaba **por encima** del vídeo con un desbordamiento fijo, así que sus varillas tapaban ~10 % del vídeo por cada lado y ~20 % arriba. Se midió la ventana real de `frame.png` (1600×900 → hueco en 10,5 % / 19,6 % / 80 % / 66,2 %) y ahora **el vídeo se coloca dentro de esa ventana**, centrado y entero (`object-fit:contain`). En móvil, donde el marco no se pinta, el reproductor vuelve a ser una caja 16:9 normal. Además se limpió el **halo rojo** que traía el PNG del marco (resto del recorte del fondo). |
+| 6 | *"Este igual no debería tener fondo"* (el altar de la piña) | Era un JPG con fondo marrón-dorado: en la página se leía como un **rectángulo pegado**. Se generó `altar-pina.png` con alfa: fondo hundido a negro y bordes fundidos, así que ahora flota sobre el negro de la página. También se le quitó el marco y la sombra de caja (`shot--libre`). |
+| 7 | *"quitar el nombre de Fernando Longoria"* | Quitado del pie del reproductor del VSL, que ahora dice **«B-SHP Brothers · The Game»**. |
+| 8 | *"Hasta abajo en powered by AGENTIA quítale el ."* | El pie decía «Powered by Agent.IA Labs». Ahora dice **«Powered by / AGENTIA LABS»** en dos líneas y sin punto, que es como está escrita la marca en el logo oficial (`d7685114…png`) y en el banner del Drive. |
+
+### Dos cosas que conviene que Fer confirme de esta ronda
+
+- **El nombre en la sección FOUNDER se ha dejado.** La nota decía *"quitar el nombre de
+  Fernando Longoria"* y la marca verde estaba sobre el pie del vídeo, así que se quitó ahí.
+  Pero el copy master (`fer.txt`, documento FROZEN) tiene una sección entera —la 17— titulada
+  **FERNANDO LONGORIA**, y quitarla sería quitar el «por qué existe B-SHP». **Sigue en la
+  página.** Si también hay que borrarla, es un minuto.
+- **«AGENTIA» sin punto.** La nota dice «quítale el .» y a la vez escribe «Agent.IA Lab»
+  con punto. Se optó por lo que dice el logo oficial: **AGENTIA LABS**, sin punto. Si la
+  marca es «Agent.IA Lab», se cambia igual de rápido.

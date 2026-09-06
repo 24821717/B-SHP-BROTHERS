@@ -150,7 +150,7 @@ a.hotmart-fb.hotmart__button-checkout.btn{
 .nav.is-stuck::after{opacity:1}
 .nav__in{display:flex;align-items:center;gap:2rem;width:min(100% - 2.6rem,1440px);margin-inline:auto}
 .nav__logo{display:flex;align-items:center;gap:.7rem;flex:0 0 auto}
-.nav__logo img{height:30px;width:auto;mix-blend-mode:screen;filter:drop-shadow(0 2px 10px rgba(212,175,55,.35))}
+.nav__logo img{height:32px;width:auto;filter:drop-shadow(0 2px 10px rgba(212,175,55,.35))}
 .nav__links{display:flex;gap:2.2rem;margin-left:auto}
 .nav__links a{
   font-family:var(--ff-display);font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
@@ -329,7 +329,16 @@ a.hotmart-fb.hotmart__button-checkout.btn{
 .player__btn:hover .player__play{transform:scale(1.09)}
 .player__play::after{content:'';width:0;height:0;margin-left:5px;border-left:19px solid #120C00;border-block:12px solid transparent}
 .player.is-playing .player__btn,.player.is-playing .player__poster{opacity:0;pointer-events:none}
-.player__deco{position:absolute;inset:-4.6% -3.4%;pointer-events:none;mix-blend-mode:screen;z-index:3;opacity:.95}
+.player__deco{position:absolute;inset:-4.6% -3.4%;pointer-events:none;z-index:3;opacity:.95}
+/* El marco manda: el vídeo se mete DENTRO de su ventana, no debajo del marco.
+   Medidas tomadas sobre frame.png (1600x900): hueco en 10.5% 19.6% 80% 66.2%. */
+.player--marco .player__stage{aspect-ratio:1600/900}
+.player--marco .player__deco{inset:0;width:100%;height:100%;opacity:1}
+.player--marco .player__frame{
+  position:absolute;left:10.5%;top:19.6%;width:80%;height:66.2%;
+  aspect-ratio:auto;border-radius:0;box-shadow:none;background:#000;
+}
+.player--marco .player__frame video,.player--marco .player__poster{object-fit:cover;object-position:center}
 .player__cap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1.15rem;font-family:var(--ff-display);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--texto-tenue)}
 .player__cap b{color:var(--oro)}
 
@@ -385,14 +394,14 @@ a.hotmart-fb.hotmart__button-checkout.btn{
 /* ---------- 14. FOOTER ---------- */
 .foot{background:#070707;border-top:1px solid var(--linea);padding:4rem 0 2.2rem}
 .foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2.6rem}
-.foot__logo{height:42px;width:auto;margin-bottom:1.1rem;mix-blend-mode:screen}
+.foot__logo{height:46px;width:auto;margin-bottom:1.1rem}
 .foot__tag{font-family:var(--ff-serif);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--texto-tenue);line-height:1.9}
 .foot h4{font-family:var(--ff-display);font-size:.72rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--oro);margin-bottom:1.1rem}
 .foot ul{list-style:none;margin:0;padding:0;display:grid;gap:.62rem}
 .foot a{font-size:.86rem;color:var(--texto);transition:color .25s}
 .foot a:hover{color:var(--oro-claro)}
 .foot__bar{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.06);font-size:.74rem;color:var(--texto-tenue)}
-.foot__by{display:flex;align-items:center;gap:.85rem;font-family:var(--ff-display);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase}
+.foot__by{display:flex;flex-direction:column;align-items:flex-start;gap:.35rem;line-height:1.3;font-family:var(--ff-display);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase}
 .foot__by b{font-weight:600;background:linear-gradient(95deg,#E9E9EE,#B9B9C6 40%,#8E5BD6 62%,#D4AF37 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;letter-spacing:.14em}
 .social{display:flex;gap:.7rem}
 .social a{width:34px;height:34px;display:grid;place-items:center;box-shadow:inset 0 0 0 1px var(--linea);border-radius:2px;transition:.3s}
@@ -417,6 +426,7 @@ a.hotmart-fb.hotmart__button-checkout.btn{
 .divider--sm{width:min(80%,340px);opacity:.65}
 .roadmap{width:100%;mix-blend-mode:screen;filter:drop-shadow(0 20px 60px rgba(212,175,55,.25))}
 .shot{border-radius:3px;box-shadow:0 40px 90px -50px rgba(212,175,55,.6),inset 0 0 0 1px var(--linea)}
+.shot--libre{border-radius:0;box-shadow:none;filter:drop-shadow(0 30px 70px rgba(212,175,55,.28))}
 .float{animation:float 7s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 .pina-mark{position:absolute;right:-2%;top:8%;width:min(34%,320px);opacity:.1;pointer-events:none;z-index:1}
@@ -468,6 +478,8 @@ a.hotmart-fb.hotmart__button-checkout.btn{
   .btn{--pad:1rem 1.4rem;width:100%}
   .hero__actions{flex-direction:column;align-items:stretch}
   .player__deco{display:none}
+  .player--marco .player__stage{aspect-ratio:auto}
+  .player--marco .player__frame{position:relative;left:auto;top:auto;width:100%;height:auto;aspect-ratio:16/9;border-radius:3px;box-shadow:0 40px 110px -50px rgba(212,175,55,.5),inset 0 0 0 1px var(--linea)}
 }
 
 @media (prefers-reduced-motion:reduce){
