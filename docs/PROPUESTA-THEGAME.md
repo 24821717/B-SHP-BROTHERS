@@ -156,3 +156,34 @@ Las siete notas que Fer mandó en `RECOMENDACIONES/`, una por una, y qué se hiz
 - **«AGENTIA» sin punto.** La nota dice «quítale el .» y a la vez escribe «Agent.IA Lab»
   con punto. Se optó por lo que dice el logo oficial: **AGENTIA LABS**, sin punto. Si la
   marca es «Agent.IA Lab», se cambia igual de rápido.
+
+
+---
+
+## 9. Nota de caché · 2026-09-06, segunda vuelta
+
+Fer volvió a mandar el pantallazo del trailer **descentrado dentro del marco**
+(`RECOMENDACIONES/centrar bien dentro del marco.jpg`) después de que estuviera arreglado y
+publicado. No era el arreglo: era la **caché**.
+
+El `netlify.toml` servía todo `/assets/*` con `max-age=31536000` —un año— y los ficheros no
+cambiaban de nombre al cambiar de contenido. Quien ya hubiera abierto la página se quedaba con
+el CSS y las imágenes viejas hasta 2027, por mucho que se desplegara lo nuevo.
+
+Comprobado antes de tocar nada: se descargó el CSS del servidor y contiene las seis reglas de
+`.player--marco`, y se renderizó la sección del trailer **con los assets en vivo** (`<base>`
+apuntando a Netlify). El vídeo cae exacto dentro de la ventana del marco. El servidor estaba bien.
+
+**Arreglo, en dos partes porque con una no bastaba:**
+
+1. Todo lo que se tocó en la ronda de correcciones cambia de nombre: `logo-wordmark-v2.png`,
+   `logo-emblem-v2.png`, `frame-v2.png`, `lockup-thegame-v2.png`, `thegame-v2.css`,
+   `home-v2.css`, `thegame-v2.js`, `home-v2.js`. URL nueva, descarga nueva, sin depender de que
+   nadie limpie nada.
+2. La política de caché deja de ser la misma para todo: los vídeos siguen con el año
+   (`immutable`), y **imágenes, CSS y JS pasan a revalidar siempre**. Con ETag la respuesta es un
+   304 y no cuesta ancho de banda. Mientras la web esté en revisión, nadie vuelve a ver una
+   versión vieja.
+
+**Regla para el futuro:** si se cambia el contenido de un asset con revisión en marcha, o se le
+sube la versión al nombre, o se acepta que alguien seguirá viendo el anterior.
