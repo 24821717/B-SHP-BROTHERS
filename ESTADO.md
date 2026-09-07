@@ -103,3 +103,42 @@ cd "/home/camilo23/FER PROYECT/web" && python3 -m http.server 3010
       primero y quitar esas líneas de `.gitignore`.
 - [ ] Material vertical (9:16) para hero y manifiesto de la home: el origen es 16:9 y el
       móvil hoy se resuelve con reencuadre, no con composición propia.
+
+
+---
+
+## Ronda 2026-09-06 (tarde) · sin publicar todavía
+
+Aplicadas **las 6 correcciones de `/thegame`** (las imágenes de `RECOMENDACIONES/`)
+y **las 13 instrucciones de la HOME** (`RECOMENDACIONES/Nuevo Documento de texto.txt`,
+que es la dirección final de HOME, no de The Game).
+
+Detalle completo en `docs/PROPUESTA-THEGAME.md` §9 y en `docs/PROPUESTA-HOME.md`.
+
+**Todo está en local, SIN commit ni push, para no gastar despliegues de Netlify.**
+
+Para verlo:
+```bash
+cd "/home/camilo23/FER PROYECT/web" && python3 -m http.server 3010
+```
+- http://localhost:3010/ → HOME
+- http://localhost:3010/thegame/ → THE GAME
+
+### Bugs reales encontrados y corregidos
+- **El “texto superpuesto no se ve bien” tenía dos causas.** La franja
+  “POWERED BY AGENTIA LABS” venía incrustada en la imagen `gate-banner.jpg`
+  (recortada), y sobre todo: `.finale` no es `.sec`, así que su `.wrap` no
+  heredaba `z-index:2` y **todo el copy del cierre quedaba debajo del velo
+  oscuro**. Corregido.
+- El modal de las fichas de GOODS salía abierto al cargar: un `display:grid`
+  anulaba el atributo `hidden`. Corregido con `.ficha[hidden]{display:none}`.
+- Se retiró una imagen con el logo **HÁBITAT** (otra marca inmobiliaria).
+
+### BLOCKER pendiente del cliente
+1. Texto del aviso de privacidad.
+2. Texto de términos y condiciones.
+3. Datos de contacto reales.
+4. URLs de las 5 redes sociales (siguen en `#`).
+
+Las rutas legales ya existen (`/legal/…`) para que ningún enlace quede muerto,
+pero **no se redactó contenido legal**: cada página dice que está pendiente.

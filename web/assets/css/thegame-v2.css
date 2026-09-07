@@ -381,8 +381,8 @@ a.hotmart-fb.hotmart__button-checkout.btn{
 
 /* ---------- 13. BANNER FINAL ---------- */
 .finale{position:relative;min-height:88svh;display:grid;place-items:center;text-align:center;overflow:hidden;padding:6rem 0}
-.finale .bg img{opacity:.55}
-.finale .bg::after{background:radial-gradient(110% 80% at 50% 55%,rgba(11,11,11,.3),rgba(11,11,11,.88) 70%,#0B0B0B 100%)}
+.finale .bg img{opacity:.42}
+.finale .bg::after{background:radial-gradient(95% 70% at 50% 52%,rgba(11,11,11,.72),rgba(11,11,11,.93) 62%,#0B0B0B 100%)}
 .finale__lock{width:min(84%,640px);margin:0 auto 2rem;filter:drop-shadow(0 20px 60px rgba(0,0,0,.9))}
 .tilt-l,.tilt-r{
   position:absolute;top:clamp(4rem,12vh,9rem);font-family:var(--ff-display);font-weight:700;
@@ -486,3 +486,25 @@ a.hotmart-fb.hotmart__button-checkout.btn{
   *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   [data-rv]{opacity:1;transform:none}
 }
+
+/* Cierre del CTA final: el párrafo caía encima de la franja del banner.
+   Se recortó la franja de la imagen y aquí se le da respaldo propio. */
+.finale__last{
+  margin:3rem auto 0;max-width:46ch;font-size:.95rem;color:var(--crema);
+  text-shadow:0 2px 18px rgba(0,0,0,.95),0 0 40px rgba(0,0,0,.8);
+  padding:1.15rem 1.4rem;border-radius:3px;
+  background:rgba(8,8,8,.55);backdrop-filter:blur(3px);
+  box-shadow:inset 0 0 0 1px var(--linea);
+}
+
+/* .finale no es .sec, así que su .wrap no heredaba el z-index:2 y todo
+   el copy quedaba DEBAJO del velo oscuro de .bg::after. Ese era el
+   'texto superpuesto que no se ve bien'. */
+.finale>.wrap{position:relative;z-index:2}
+
+/* Además, la imagen del Gate es luminosa en el centro: el copy lleva
+   su propio contraste para no depender del fondo. */
+.finale .punch,.finale .serif,.finale .price__foot{
+  text-shadow:0 2px 16px rgba(0,0,0,.95),0 0 44px rgba(0,0,0,.85);
+}
+.finale .price__foot{color:var(--texto)}

@@ -438,3 +438,210 @@ h1,h2,h3{color:var(--crema);font-family:var(--ff-display);font-weight:700;line-h
   *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   [data-rv]{opacity:1;transform:none}
 }
+
+/* ============================================================
+   RONDA 06-sep · secciones nuevas de HOME
+   Dirección: imágenes grandes, editorial, sin cajas dentro de
+   cajas, sin glow por todas partes.
+   ============================================================ */
+
+/* ---- tira editorial de personas reales (bajo The Brothers) ---- */
+.tira{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
+  background:var(--linea);
+}
+.tira figure{margin:0;overflow:hidden;aspect-ratio:4/3}
+.tira img{
+  width:100%;height:100%;object-fit:cover;
+  filter:saturate(.9) contrast(1.03);
+  transition:transform 1.2s cubic-bezier(.2,.7,.3,1),filter .6s;
+}
+.tira figure:hover img{transform:scale(1.05);filter:saturate(1.05) contrast(1.05)}
+
+/* ---- UN MUNDO MÁS GRANDE · mapa de territorios ---- */
+.mundo{padding-block:clamp(4.5rem,8vw,8rem)}
+.territorios-mapa{
+  display:grid;gap:12px;margin-top:clamp(2.6rem,5vw,4rem);
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:minmax(190px,auto);
+}
+.terr{
+  position:relative;overflow:hidden;border-radius:3px;display:block;
+  box-shadow:inset 0 0 0 1px var(--linea);
+  min-height:190px;isolation:isolate;
+}
+.terr img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform 1.4s cubic-bezier(.2,.7,.3,1),filter .6s;
+  filter:saturate(.82) contrast(1.05) brightness(.82);
+}
+.terr::after{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(11,11,11,.05) 30%,rgba(11,11,11,.86) 100%);
+  transition:background .5s;
+}
+.terr__txt{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.2rem;
+}
+.terr__txt b{
+  font-family:var(--ff-display,'Poppins',sans-serif);font-weight:600;
+  font-size:clamp(1rem,1.5vw,1.35rem);text-transform:uppercase;letter-spacing:.05em;
+  color:#fff;line-height:1.1;
+}
+.terr__txt i{
+  font-style:normal;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--oro);
+}
+.terr:hover img{transform:scale(1.06);filter:saturate(1) contrast(1.06) brightness(.92)}
+.terr:hover::after{background:linear-gradient(180deg,rgba(11,11,11,0) 20%,rgba(11,11,11,.78) 100%)}
+.terr:hover{box-shadow:inset 0 0 0 1px var(--linea-fuerte)}
+.terr--xl{grid-column:span 2;grid-row:span 2;min-height:392px}
+.terr--wide{grid-column:1 / -1;min-height:230px}
+
+/* ---- THE GAME (reducido) ---- */
+.split--juego{align-items:center;gap:clamp(2rem,5vw,4.5rem)}
+.juego__shot{
+  width:100%;border-radius:3px;
+  box-shadow:0 40px 90px -50px rgba(212,175,55,.6),inset 0 0 0 1px var(--linea);
+}
+
+/* ---- B-SHP GOODS ---- */
+.goods__pronto{
+  font-family:var(--ff-serif,'Cinzel',serif);
+  font-size:clamp(.68rem,1vw,.8rem);letter-spacing:.42em;text-transform:uppercase;
+  color:var(--oro);margin:.4rem 0 0;
+}
+.goods__grid{
+  display:grid;gap:12px;margin-top:clamp(2.4rem,5vw,3.6rem);
+  grid-template-columns:repeat(5,1fr);
+}
+.pieza{margin:0}
+.pieza__btn{
+  width:100%;background:linear-gradient(170deg,rgba(212,175,55,.055),rgba(0,0,0,.34));
+  border:0;cursor:pointer;padding:1.8rem 1.1rem 1.5rem;border-radius:3px;
+  box-shadow:inset 0 0 0 1px var(--linea);
+  display:flex;flex-direction:column;align-items:center;gap:.15rem;
+  transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s,background .4s;
+}
+.pieza__btn:hover{
+  transform:translateY(-5px);background:linear-gradient(170deg,rgba(212,175,55,.11),rgba(0,0,0,.3));
+  box-shadow:inset 0 0 0 1px var(--linea-fuerte),0 24px 50px -30px rgba(212,175,55,.55);
+}
+.pieza__marco{
+  width:100%;aspect-ratio:4/5;display:grid;place-items:center;margin-bottom:1.2rem;
+  background:
+    radial-gradient(70% 55% at 50% 45%,rgba(212,175,55,.20),transparent 70%),
+    repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 10px,transparent 10px 20px);
+  box-shadow:inset 0 0 0 1px var(--linea);border-radius:2px;overflow:hidden;
+}
+.pieza__sello{
+  width:52%;opacity:.62;filter:drop-shadow(0 10px 30px rgba(212,175,55,.45));
+  transition:opacity .45s,transform .6s cubic-bezier(.2,.7,.3,1);
+}
+.pieza__btn:hover .pieza__sello{opacity:.95;transform:scale(1.07)}
+.pieza__n{
+  font-family:var(--ff-serif,'Cinzel',serif);font-size:.66rem;letter-spacing:.3em;
+  color:var(--ambar);
+}
+.pieza__nombre{
+  font-family:var(--ff-display,'Poppins',sans-serif);font-weight:600;font-size:.94rem;
+  text-transform:uppercase;letter-spacing:.09em;color:var(--crema);margin-top:.35rem;
+}
+.pieza__estado{
+  font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--oro);opacity:.75;
+  margin-top:.3rem;
+}
+
+/* ficha de pieza */
+.ficha[hidden]{display:none!important}
+.ficha{
+  position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:1.5rem;
+  background:rgba(6,6,6,.93);backdrop-filter:blur(10px);
+  animation:fichaIn .3s ease;
+}
+@keyframes fichaIn{from{opacity:0}to{opacity:1}}
+.ficha__caja{width:min(100%,430px);text-align:center}
+.ficha__visual{
+  aspect-ratio:4/5;display:grid;place-items:center;border-radius:3px;overflow:hidden;
+  background:
+    radial-gradient(70% 55% at 50% 45%,rgba(212,175,55,.14),transparent 70%),
+    repeating-linear-gradient(135deg,rgba(255,255,255,.02) 0 10px,transparent 10px 20px);
+  box-shadow:inset 0 0 0 1px var(--linea-fuerte);
+}
+.ficha__visual img{width:46%;opacity:.42}
+.ficha__visual img.real{width:100%;height:100%;object-fit:cover;opacity:1}
+.ficha__nombre{
+  font-family:var(--ff-display,'Poppins',sans-serif);font-weight:600;
+  font-size:1.25rem;text-transform:uppercase;letter-spacing:.1em;color:var(--crema);
+  margin:1.5rem 0 .4rem;
+}
+.ficha__estado{
+  font-family:var(--ff-serif,'Cinzel',serif);font-size:.68rem;letter-spacing:.36em;
+  text-transform:uppercase;color:var(--oro);margin:0;
+}
+.ficha__cerrar{
+  position:absolute;top:1.2rem;right:1.4rem;z-index:2;
+  width:44px;height:44px;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.05);color:var(--oro);font-size:1.7rem;line-height:1;
+  box-shadow:inset 0 0 0 1px var(--linea);transition:.3s;
+}
+.ficha__cerrar:hover{background:rgba(212,175,55,.14);box-shadow:inset 0 0 0 1px var(--oro)}
+
+/* ---- EXPERIENCIAS ---- */
+.exp__grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+  margin-top:clamp(2.4rem,5vw,3.6rem);
+}
+.exp{position:relative;margin:0;overflow:hidden;border-radius:3px;aspect-ratio:4/3;box-shadow:inset 0 0 0 1px var(--linea)}
+.exp img{
+  width:100%;height:100%;object-fit:cover;
+  filter:saturate(.85) contrast(1.04) brightness(.85);
+  transition:transform 1.3s cubic-bezier(.2,.7,.3,1),filter .6s;
+}
+.exp::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(11,11,11,.85) 100%)}
+.exp figcaption{
+  position:absolute;left:1.3rem;bottom:1.15rem;z-index:2;
+  font-family:var(--ff-display,'Poppins',sans-serif);font-weight:600;font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.2em;color:#fff;
+}
+.exp:hover img{transform:scale(1.06);filter:saturate(1) contrast(1.05) brightness(.95)}
+
+/* ---- footer: fila legal ---- */
+.foot__legal{
+  display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;align-items:center;
+  margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.06);
+  font-size:.76rem;letter-spacing:.1em;
+}
+.foot__legal a{color:var(--texto-tenue);transition:color .25s}
+.foot__legal a:hover{color:var(--oro-claro)}
+.foot__legal span{color:var(--ambar);opacity:.5}
+
+/* ---- PLAYERS · preparado, aún sin publicar ---- */
+.players__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:2.6rem}
+.player-card{
+  padding:1.5rem;border-radius:3px;box-shadow:inset 0 0 0 1px var(--linea);
+  background:linear-gradient(170deg,rgba(212,175,55,.05),rgba(0,0,0,.3));
+}
+.player-card img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:2px;margin-bottom:1.1rem}
+.player-card__id{font-family:var(--ff-serif,'Cinzel',serif);font-size:.7rem;letter-spacing:.26em;color:var(--oro);margin:0 0 .5rem}
+.player-card__que{font-weight:600;color:var(--crema);margin:0 0 .3rem}
+.player-card__ev{font-size:.88rem;color:var(--texto);margin:0}
+
+/* ---- responsive ---- */
+@media (max-width:1080px){
+  .territorios-mapa{grid-template-columns:repeat(2,1fr)}
+  .terr--xl{grid-column:span 2;grid-row:span 1;min-height:260px}
+  .terr--wide{grid-column:1 / -1;min-height:230px}
+  .goods__grid{grid-template-columns:repeat(3,1fr)}
+  .exp__grid{grid-template-columns:repeat(2,1fr)}
+  .tira{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .territorios-mapa{grid-template-columns:1fr}
+  .terr,.terr--xl{min-height:200px}
+  .terr--xl,.terr--wide{grid-column:span 1}
+  .goods__grid{grid-template-columns:repeat(2,1fr)}
+  .exp__grid{grid-template-columns:1fr}
+  .players__grid{grid-template-columns:1fr}
+}

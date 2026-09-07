@@ -140,3 +140,59 @@
     track(el.dataset.track, { desde: el.dataset.trackFrom || '' });
   });
 })();
+
+/* ============================================================
+   B-SHP GOODS · ficha de pieza
+   Cada .pieza lleva data-pieza (nombre) y data-img (ruta de la
+   foto real, hoy vacía). Cuando lleguen los assets basta con
+   rellenar data-img en el HTML: esto ya la muestra.
+   ============================================================ */
+(function () {
+  'use strict';
+  var ficha = document.getElementById('ficha');
+  if (!ficha) return;
+
+  var visual = document.getElementById('fichaVisual');
+  var nombre = document.getElementById('fichaNombre');
+  var cerrar = document.getElementById('fichaCerrar');
+  var previo = null;
+
+  function abrir(pieza) {
+    var img = pieza.getAttribute('data-img') || '';
+    var nom = pieza.getAttribute('data-pieza') || '';
+    nombre.textContent = nom;
+
+    var el = visual.querySelector('img');
+    if (img) {
+      el.src = img;
+      el.alt = nom;
+      el.classList.add('real');
+    } else {
+      el.src = 'assets/img/pina.png';
+      el.alt = '';
+      el.classList.remove('real');
+    }
+
+    previo = document.activeElement;
+    ficha.hidden = false;
+    document.body.style.overflow = 'hidden';
+    cerrar.focus();
+  }
+
+  function cerrarFicha() {
+    ficha.hidden = true;
+    document.body.style.overflow = '';
+    if (previo && previo.focus) previo.focus();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.pieza'), function (p) {
+    var btn = p.querySelector('.pieza__btn');
+    if (btn) btn.addEventListener('click', function () { abrir(p); });
+  });
+
+  cerrar.addEventListener('click', cerrarFicha);
+  ficha.addEventListener('click', function (e) { if (e.target === ficha) cerrarFicha(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !ficha.hidden) cerrarFicha();
+  });
+})();

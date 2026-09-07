@@ -187,3 +187,23 @@ apuntando a Netlify). El vídeo cae exacto dentro de la ventana del marco. El se
 
 **Regla para el futuro:** si se cambia el contenido de un asset con revisión en marcha, o se le
 sube la versión al nombre, o se acepta que alguien seguirá viendo el anterior.
+
+---
+
+## 9. Ronda de correcciones · 2026-09-06 (segunda tanda)
+
+Las seis notas de `RECOMENDACIONES/`, una por una.
+
+| # | Nota del cliente | Qué se hizo |
+|---|---|---|
+| 1 | `seccion 1 tension.jpeg` | Nueva imagen en **01 — La tensión**: B-SHP dejando el rebaño rumbo a la ciudad dorada. Sustituye a la oveja canon recortada. Casa mucho mejor con “sabes lo que deberías hacer”. |
+| 2 | `seccion6 product reveal.jpeg` | Nueva imagen en **06 — Product reveal**: el manual gigante *Las Reglas del Juego* en el altar. Sustituye al mockup de dispositivos. |
+| 3 | `seccion7 player setup.jpeg` | Nueva imagen en **07 — Tu Player Setup**: el kit completo (Alter Ego, Black Sheep Test, 3NN, Marcador, RITO7, 5 Coordenadas). Mucho más explícito de lo que se recibe. |
+| 4 | *“pasar imagen a la sección 9”* | La oveja con el control (la que estaba en la 07) se movió a **09 — Bottleneck → Alter Ego**, donde ilustra “quién toma el volante”. |
+| 5 | *“quitar nombre de Fernando Longoria”* | Fuera. El bloque pasa de “FERNANDO LONGORIA” a **“Por qué existe B-SHP”**, y el eyebrow a “16 — El origen”. No queda ninguna mención del nombre en la página. |
+| 6 | *“texto superpuesto no se ve bien”* | **Dos causas, las dos corregidas.** (a) La imagen del Gate traía incrustada abajo la franja “POWERED BY AGENTIA LABS”, y el párrafo de cierre caía justo encima: se recortó esa franja de la imagen. (b) La de fondo: `.finale` no es `.sec`, así que su `.wrap` no heredaba `z-index:2` y **todo el copy del cierre quedaba por debajo del velo oscuro**. Corregido; además el párrafo final lleva ahora su propio respaldo. |
+
+> El archivo `quitar nombre de fernando longordia.paint` es un HEIF y este equipo
+> no tiene decodificador, así que no pude abrirlo. La instrucción del nombre del
+> archivo es inequívoca y es la que se aplicó. Si la anotación pedía algo más,
+> mándala en JPG o PNG.
