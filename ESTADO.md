@@ -403,3 +403,35 @@ cambio de registro, no la línea siguiente. Una sola regla para los tres.
   - **Botón de volver a la home** al final de la sección.
   - Se queda todo lo demás: «7 días · Sin promesas · Solo evidencia», el botón de compra,
     el Founding Player Price y «Si no entras, que sea porque decidiste no entrar».
+
+
+---
+
+## Ronda 2026-09-08 (18:30) · limpieza de assets
+
+Se retiran del repo los 14 archivos que ya no usa ninguna página: **8,2 MB menos**.
+`web/` pasa de 116 a 108 MB.
+
+Qué se fue y por qué:
+
+| Archivo | Por qué sobra |
+|---|---|
+| `lockup-thegame-v2.png` | el cierre y el §18 son vídeo desde hoy |
+| `sheep-gamer.png` | lo sustituyó `bottleneck.jpg` en el §09 |
+| `bg-earth.jpg` | el §17 pasó a fondo animado |
+| `exp-{viajes,mesas,ciudades,entrenamiento,construccion,encuentros}.jpg` | la rejilla es de marcas y la tira estrenó fotos |
+| `splash.mp4` + `splash-poster.jpg` | el clip de splash nunca se usó |
+| `altar-pina.{jpg,png}`, `product-showcase.jpg` | restos de la v1 de /thegame |
+
+**Comprobación:** 82 archivos en disco, 82 referenciados, cero huérfanos y cero
+referencias rotas. Además se pidió cada uno de los 82 al servidor local: todos 200.
+
+Dos apuntes:
+
+- **No se reescribió la historia de git.** Los archivos siguen recuperables con
+  `git show <commit>:<ruta>`, y además hay copia local en
+  `originales-sustituidos/retirados-08sep/`. Reescribir la historia habría hecho falta
+  para bajar el tamaño de `.git`, pero eso rompe el clon de quien administra el servidor
+  de Fer, que ya tiene el repo. No compensa.
+- El peso real del sitio sigue estando en `vsl.mp4` (28 MB) y `trailer.mp4` (19 MB).
+  Si hace falta adelgazar de verdad, ahí está el margen: se reencodan sin que se note.
