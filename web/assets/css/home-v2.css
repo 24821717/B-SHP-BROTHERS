@@ -196,6 +196,29 @@ h1,h2,h3{color:var(--crema);font-family:var(--ff-display);font-weight:700;line-h
 .banda__copy{max-width:34rem}
 .banda--der .banda__copy{grid-column:2;justify-self:end}
 .banda--der .script{order:-1}
+/* banda sin frase manuscrita: el copy ocupa una columna real de la retícula,
+   con medida de lectura acotada y aire suficiente para no pegarse al borde */
+.banda__grid--solo{
+  grid-template-columns:minmax(0,1fr) minmax(0,33rem)!important;
+  gap:clamp(2rem,6vw,5.5rem);
+}
+.banda--der .banda__grid--solo .banda__copy{
+  grid-column:2;justify-self:stretch;max-width:none;
+  padding-inline-end:clamp(.25rem,2.4vw,2.6rem);
+}
+.banda--der .banda__grid--solo .h-lg{text-wrap:balance}
+/* la frase manuscrita vuelve a la mitad izquierda, asentada abajo sobre la foto */
+.banda__script{grid-column:1;grid-row:1;justify-self:center;align-self:center;margin:0;max-width:14ch}
+/* más velo bajo el texto: el copy siempre por delante de la imagen */
+.banda--der .banda__media::after{
+  background:
+    linear-gradient(270deg,rgba(8,8,8,.95) 0%,rgba(8,8,8,.86) 30%,rgba(8,8,8,.2) 66%,rgba(8,8,8,.45) 100%),
+    linear-gradient(180deg,#0B0B0B 0%,rgba(11,11,11,0) 16%,rgba(11,11,11,0) 82%,#0B0B0B 100%);
+}
+/* la cascada "cliente → colaboración → socio → empresa": escalera, no párrafos sueltos */
+.escala{gap:.75rem;margin-top:1.35rem;padding-left:1.35rem;border-left:1px solid rgba(212,175,55,.3)}
+.escala li{font-size:clamp(1rem,1.15vw,1.12rem)}
+.escala li::before{width:5px;height:5px;opacity:.9}
 
 /* fondo de sección centrada: velo radial, no lateral */
 .fondo-cine{position:absolute;inset:0;z-index:0;overflow:hidden}
@@ -414,6 +437,9 @@ h1,h2,h3{color:var(--crema);font-family:var(--ff-display);font-weight:700;line-h
   .banda{min-height:auto}
   .banda__grid,.banda--der .banda__grid{grid-template-columns:1fr}
   .banda--der .banda__copy{grid-column:1;justify-self:start}
+  .banda__grid--solo{grid-template-columns:1fr!important;gap:0}
+  .banda__script{display:none}
+  .banda--der .banda__grid--solo .banda__copy{grid-column:1;justify-self:start;max-width:34rem;padding-inline-end:0}
   .banda__media::after,.banda--der .banda__media::after{background:linear-gradient(180deg,rgba(8,8,8,.5) 0%,rgba(8,8,8,.86) 42%,rgba(8,8,8,.95) 100%)}
   .banda .script,.hero .script{display:none}
   .manifiesto{min-height:auto;padding-block:clamp(4rem,12vw,6rem)}
@@ -507,51 +533,85 @@ h1,h2,h3{color:var(--crema);font-family:var(--ff-display);font-weight:700;line-h
 }
 
 /* ---- B-SHP GOODS ---- */
+.goods{padding-top:0}
+.goods__hero{position:relative;min-height:min(78svh,700px);display:flex;align-items:center;overflow:hidden;margin-bottom:clamp(2rem,4vw,3rem)}
+.goods__media{position:absolute;inset:0;z-index:0}
+.goods__media img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.goods__media::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(95deg,#0B0B0B 6%,rgba(11,11,11,.88) 30%,rgba(11,11,11,.28) 58%,rgba(11,11,11,.55) 100%),
+    linear-gradient(180deg,#0B0B0B 0%,transparent 22%,transparent 72%,#0B0B0B 100%);
+}
+.goods__intro{position:relative;z-index:2;padding-block:clamp(3rem,7vw,5rem)}
+.goods__h{
+  font-family:var(--ff-display);font-weight:700;line-height:.92;
+  font-size:clamp(2.6rem,7.4vw,5.6rem);text-transform:uppercase;letter-spacing:-.02em;
+  color:var(--crema);margin:0;
+}
+.goods__claim{
+  font-family:var(--ff-serif);font-weight:400;
+  font-size:clamp(.95rem,1.9vw,1.5rem);letter-spacing:.34em;text-transform:uppercase;
+  color:var(--oro-claro);margin:1rem 0 1.8rem;
+}
+.goods__copy{
+  font-size:clamp(.95rem,.5vw + .85rem,1.1rem);line-height:1.75;color:var(--texto);
+  margin:0 0 2rem;max-width:34ch;
+}
 .goods__pronto{
-  font-family:var(--ff-serif,'Cinzel',serif);
-  font-size:clamp(.68rem,1vw,.8rem);letter-spacing:.42em;text-transform:uppercase;
-  color:var(--oro);margin:.4rem 0 0;
+  font-family:var(--ff-serif);font-size:clamp(.7rem,1vw,.85rem);
+  letter-spacing:.46em;text-transform:uppercase;color:var(--oro);margin:0;
 }
-.goods__grid{
-  display:grid;gap:12px;margin-top:clamp(2.4rem,5vw,3.6rem);
-  grid-template-columns:repeat(5,1fr);
-}
+
+.goods__grid{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
 .pieza{margin:0}
 .pieza__btn{
-  width:100%;background:linear-gradient(170deg,rgba(212,175,55,.055),rgba(0,0,0,.34));
-  border:0;cursor:pointer;padding:1.8rem 1.1rem 1.5rem;border-radius:3px;
+  width:100%;height:100%;cursor:pointer;border:0;text-align:left;
+  padding:1.7rem 1.3rem 1.4rem;border-radius:3px;
+  background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(0,0,0,.42));
   box-shadow:inset 0 0 0 1px var(--linea);
-  display:flex;flex-direction:column;align-items:center;gap:.15rem;
+  display:flex;flex-direction:column;
   transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s,background .4s;
 }
 .pieza__btn:hover{
-  transform:translateY(-5px);background:linear-gradient(170deg,rgba(212,175,55,.11),rgba(0,0,0,.3));
-  box-shadow:inset 0 0 0 1px var(--linea-fuerte),0 24px 50px -30px rgba(212,175,55,.55);
+  transform:translateY(-5px);
+  background:linear-gradient(180deg,rgba(212,175,55,.09),rgba(0,0,0,.36));
+  box-shadow:inset 0 0 0 1px var(--linea-fuerte),0 26px 54px -32px rgba(212,175,55,.6);
+}
+.pieza__n{font-family:var(--ff-serif);font-size:1.05rem;letter-spacing:.16em;color:var(--oro);line-height:1}
+.pieza__nombre{
+  font-family:var(--ff-serif);font-weight:400;font-size:clamp(1.05rem,1.5vw,1.3rem);
+  letter-spacing:.1em;text-transform:uppercase;color:var(--crema);margin:.5rem 0 .55rem;line-height:1.1;
+}
+.pieza__sub{
+  font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--texto-tenue);
+  line-height:1.7;min-height:2.6em;
 }
 .pieza__marco{
-  width:100%;aspect-ratio:4/5;display:grid;place-items:center;margin-bottom:1.2rem;
+  display:block;width:100%;aspect-ratio:1;margin:1.3rem 0 1.4rem;
+  border-radius:2px;overflow:hidden;position:relative;
+}
+.pieza__foto{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 1.1s cubic-bezier(.2,.7,.3,1);
+}
+.pieza__btn:hover .pieza__foto{transform:scale(1.06)}
+.pieza__marco--vacio{
+  display:grid;place-items:center;
   background:
-    radial-gradient(70% 55% at 50% 45%,rgba(212,175,55,.20),transparent 70%),
+    radial-gradient(65% 55% at 50% 45%,rgba(212,175,55,.2),transparent 70%),
     repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0 10px,transparent 10px 20px);
-  box-shadow:inset 0 0 0 1px var(--linea);border-radius:2px;overflow:hidden;
+  box-shadow:inset 0 0 0 1px var(--linea);
 }
-.pieza__sello{
-  width:52%;opacity:.62;filter:drop-shadow(0 10px 30px rgba(212,175,55,.45));
-  transition:opacity .45s,transform .6s cubic-bezier(.2,.7,.3,1);
-}
-.pieza__btn:hover .pieza__sello{opacity:.95;transform:scale(1.07)}
-.pieza__n{
-  font-family:var(--ff-serif,'Cinzel',serif);font-size:.66rem;letter-spacing:.3em;
-  color:var(--ambar);
-}
-.pieza__nombre{
-  font-family:var(--ff-display,'Poppins',sans-serif);font-weight:600;font-size:.94rem;
-  text-transform:uppercase;letter-spacing:.09em;color:var(--crema);margin-top:.35rem;
-}
+.pieza__sello{width:52%;opacity:.6;filter:drop-shadow(0 10px 30px rgba(212,175,55,.4));transition:opacity .45s,transform .6s}
+.pieza__btn:hover .pieza__sello{opacity:.9;transform:scale(1.06)}
 .pieza__estado{
-  font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--oro);opacity:.75;
-  margin-top:.3rem;
+  margin-top:auto;align-self:flex-start;
+  font-family:var(--ff-display);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--oro-claro);padding:.6rem 1.1rem;border-radius:2px;
+  box-shadow:inset 0 0 0 1px var(--linea-fuerte);transition:background .35s;
 }
+.pieza__btn:hover .pieza__estado{background:rgba(212,175,55,.12)}
 
 /* ficha de pieza */
 .ficha[hidden]{display:none!important}
@@ -601,10 +661,50 @@ h1,h2,h3{color:var(--crema);font-family:var(--ff-display);font-weight:700;line-h
 }
 .exp::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(11,11,11,.85) 100%)}
 .exp figcaption{
-  position:absolute;left:1.3rem;bottom:1.15rem;z-index:2;
+  position:absolute;left:1.3rem;right:1.3rem;bottom:1.15rem;z-index:2;
   font-family:var(--ff-display,'Poppins',sans-serif);font-weight:600;font-size:.82rem;
   text-transform:uppercase;letter-spacing:.2em;color:#fff;
+  display:flex;flex-direction:column;gap:.3rem;
 }
+.exp figcaption b{font-weight:600;line-height:1.15;letter-spacing:.14em}
+.exp figcaption i{
+  font-style:normal;font-weight:500;font-size:.64rem;letter-spacing:.26em;color:var(--oro);
+}
+
+/* las 9 marcas del ecosistema: piezas de marca, se oscurecen menos */
+.exp__grid--marcas .exp{aspect-ratio:16/10}
+.exp__grid--marcas .exp img{filter:saturate(.95) contrast(1.02) brightness(.9)}
+.exp__grid--marcas .exp::after{background:linear-gradient(180deg,transparent 40%,rgba(11,11,11,.88) 100%)}
+
+/* ---- BEHIND THE WORLD · Fer Longoria ---- */
+.fer{padding-block:clamp(4rem,7vw,7rem)}
+.split--fer{grid-template-columns:.9fr 1.1fr;align-items:center}
+/* el retrato ya viene recortado en círculo sobre negro: se enmascara en redondo
+   para que el fondo de la imagen se funda con el de la página y no quede la caja negra */
+.fer__media{
+  margin:0;position:relative;justify-self:center;
+  width:min(100%,440px);aspect-ratio:1;border-radius:50%;overflow:hidden;
+  box-shadow:0 46px 100px -55px rgba(212,175,55,.55);
+}
+.fer__media::after{
+  content:'';position:absolute;inset:0;border-radius:50%;pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(212,175,55,.22);
+}
+.fer__media img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.04)}
+.fer__firma{margin-top:clamp(2rem,4vw,3rem);padding-top:1.4rem;border-top:1px solid rgba(212,175,55,.18)}
+.fer__nombre{
+  margin:0;font-family:var(--ff-serif);font-size:clamp(1.05rem,1.6vw,1.35rem);
+  letter-spacing:.16em;text-transform:uppercase;color:var(--crema);
+}
+.fer__rol{
+  margin:.45rem 0 0;font-family:var(--ff-display);font-weight:600;font-size:.66rem;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--oro);
+}
+.fer__by{
+  margin:1.2rem 0 0;font-family:var(--ff-display);font-weight:500;font-size:.62rem;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--texto-tenue);
+}
+.fer__by b{font-weight:600;color:var(--oro-claro);margin-left:.4rem}
 .exp:hover img{transform:scale(1.06);filter:saturate(1) contrast(1.05) brightness(.95)}
 
 /* ---- footer: fila legal ---- */
@@ -634,7 +734,10 @@ h1,h2,h3{color:var(--crema);font-family:var(--ff-display);font-weight:700;line-h
   .terr--xl{grid-column:span 2;grid-row:span 1;min-height:260px}
   .terr--wide{grid-column:1 / -1;min-height:230px}
   .goods__grid{grid-template-columns:repeat(3,1fr)}
+  .goods__hero{min-height:auto}
   .exp__grid{grid-template-columns:repeat(2,1fr)}
+  .split--fer{grid-template-columns:1fr;gap:2.4rem}
+  .fer__media{width:min(78vw,360px)}
   .tira{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:640px){
@@ -642,6 +745,21 @@ h1,h2,h3{color:var(--crema);font-family:var(--ff-display);font-weight:700;line-h
   .terr,.terr--xl{min-height:200px}
   .terr--xl,.terr--wide{grid-column:span 1}
   .goods__grid{grid-template-columns:repeat(2,1fr)}
+  .goods__copy{max-width:none}
+  .pieza__sub{min-height:0}
   .exp__grid{grid-template-columns:1fr}
   .players__grid{grid-template-columns:1fr}
+}
+
+/* ---- las 9 marcas: siempre de 3 en 3 (3×3), nunca una suelta ---- */
+@media (max-width:1080px){
+  .exp__grid--marcas{grid-template-columns:repeat(3,1fr);gap:9px}
+  .exp__grid--marcas figcaption{left:.85rem;right:.85rem;bottom:.8rem;font-size:.68rem;letter-spacing:.1em;gap:.22rem}
+  .exp__grid--marcas figcaption i{font-size:.54rem;letter-spacing:.16em}
+}
+@media (max-width:640px){
+  .exp__grid--marcas{grid-template-columns:1fr;gap:12px}
+  .exp__grid--marcas .exp{aspect-ratio:16/9}
+  .exp__grid--marcas figcaption{left:1.2rem;right:1.2rem;bottom:1.05rem;font-size:.8rem;letter-spacing:.18em;gap:.3rem}
+  .exp__grid--marcas figcaption i{font-size:.62rem;letter-spacing:.24em}
 }

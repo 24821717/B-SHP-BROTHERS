@@ -68,6 +68,14 @@ section{position:relative}
 /* fondo cinematográfico por sección */
 .bg{position:absolute;inset:0;overflow:hidden;z-index:0}
 .bg img{width:100%;height:100%;object-fit:cover;opacity:.34;filter:saturate(.85) contrast(1.05)}
+.bg video{width:100%;height:100%;object-fit:cover;opacity:.34;filter:saturate(.85) contrast(1.05)}
+.bg--video video{opacity:.5}
+
+/* 18 — oferta final: el lockup pasa a vídeo */
+.lockup-video{
+  display:block;width:min(100%,560px);margin:0 auto 1rem;border-radius:3px;
+  box-shadow:0 40px 90px -55px rgba(212,175,55,.6);
+}
 .bg::after{
   content:'';position:absolute;inset:0;
   background:

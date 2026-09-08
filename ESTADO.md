@@ -1,6 +1,6 @@
 # ESTADO — B-SHP BROTHERS
 
-**Última actualización:** 2026-09-06
+**Última actualización:** 2026-09-07
 **Estado:** las **dos** páginas construidas y **PUBLICADAS** — la HOME (`/`) y la sales page
 (`/thegame`). Pendiente: que Marcela las revise y que Fer confirme las reservas.
 
@@ -96,7 +96,8 @@ cd "/home/camilo23/FER PROYECT/web" && python3 -m http.server 3010
       este último con el rótulo «HÁBITAT» quemado): ¿son de B-SHP o material de referencia?
 
 ### Para publicar
-- [ ] Links reales de Términos, Privacidad, Contacto y redes (hoy `#` en las dos páginas).
+- [x] ~~Redes~~ — hechas el 07-sep (IG, TikTok, YouTube, X, WhatsApp) en las dos páginas.
+- [ ] Links reales de Términos, Privacidad y Contacto (hoy páginas `/legal/…` sin contenido).
 - [ ] Probar el checkout de Hotmart en el dominio real (el widget abre modal sólo en
       dominio publicado; en localhost cae al enlace directo).
 - [ ] Si se quiere versionar el brief (`fer.txt`, `pagina ppal/`), pasar el repo a **privado**
@@ -138,7 +139,113 @@ cd "/home/camilo23/FER PROYECT/web" && python3 -m http.server 3010
 1. Texto del aviso de privacidad.
 2. Texto de términos y condiciones.
 3. Datos de contacto reales.
-4. URLs de las 5 redes sociales (siguen en `#`).
+4. ~~URLs de las 5 redes sociales~~ → resueltas el 07-sep.
 
 Las rutas legales ya existen (`/legal/…`) para que ningún enlace quede muerto,
 pero **no se redactó contenido legal**: cada página dice que está pendiente.
+
+
+---
+
+## Ronda 2026-09-07 (noche) · HOME · sin publicar todavía
+
+Aplicadas las **9 instrucciones** del bloc de notas actualizado
+(`RECOMENDACIONES/Nuevo Documento de texto.txt`, guardado el 07-sep a las 20:39)
+más las imágenes nuevas de esa misma carpeta. **Todo en local, sin commit ni push.**
+
+1. **Black Sheep** — «Ese es el punto.» sube a la columna de texto, justo debajo de
+   «No tienes que pensar como nosotros.» Ya no queda partido a media pantalla.
+2. **The Brothers** — fuera «Emprendedores. Creativos. Profesionales. Constructores.»;
+   la lista de siete viñetas (con «Wins.») pasa a dos líneas:
+   «Negocios. Ideas. Viajes. Colaboraciones.» / «Errores. Conversaciones. Y sí, echar cotorreo.»
+3. **Los negocios pasan entre personas** — el título pasa a ser
+   «Primero las personas. / Después, los negocios.» y desaparece el remate repetido del final.
+4. **El ecosistema B-SHP** — título nuevo: «El mundo es más grande afuera.» + una línea:
+   «Proyectos, lugares y experiencias construidos para jugar en el mundo real.»
+   Las **6 fichas** (Brothers, Business, Lifestyle, Experiences, Goods, The Game) estrenan
+   las 6 imágenes con nombre de `RECOMENDACIONES/`.
+5. **Esto no vive dentro de una pantalla** — la rejilla de 6 experiencias se sustituye por
+   las **9 marcas del ecosistema** (imágenes `1..9`, `assets/img/marcas/`):
+   B-SHP Brothers · Founders 333 · Agent.IA Labs · High Rollers Club · Axochi ·
+   Signara.AI · Crypto Munch · Transilvania · The Nox Circle.
+6. **Sección nueva: BEHIND THE WORLD · Fer Longoria** — justo después de la anterior,
+   con la foto `fotoseccionnueva.jpeg` y el texto que mandó el cliente, firma incluida.
+7. **The Game** — el botón pasa a «Entrar a The Game — $111 MXN →» (sigue a `/thegame`).
+8. **Cierre** — «…Solo necesitabas **un mundo más grande**.»
+9. **Redes reales** en las dos páginas (Instagram, TikTok, YouTube, X y WhatsApp).
+   El icono de **Spotify se sustituye por WhatsApp**: era el único de los cinco sin enlace
+   y WhatsApp era el que faltaba. `/thegame` no tenía X: se le añadió.
+
+**Goods** (respuesta de Marcela, no venía en el bloc): se añade el **termo** como pieza nueva
+con `catalogo2.jpeg`, se sustituye la foto de la **sudadera** por `catalogo1.jpeg` y la de la
+**gorra** por `catalogo.jpeg` (misma toma, mejor resolución), y el catálogo se reordena a
+6 piezas en dos filas de tres: 01 Camiseta · 02 Sudadera · 03 Gorra · 04 Bucket · 05 Termo · 06 Taza.
+
+Las imágenes sustituidas están respaldadas en `originales-sustituidos/ronda-07sep/`.
+
+### Pendiente de esta ronda
+- [ ] **Que Marcela lo revise** en local antes de publicar (no se ha hecho push).
+- [ ] El subtítulo de la pieza **Termo** («El día largo también se juega») es texto mío:
+      todas las demás piezas llevan uno y el cliente no mandó el suyo. Cambiar si no gusta.
+- [ ] En «Los negocios pasan entre personas», la frase manuscrita sobre la foto dice lo mismo
+      que el título nuevo. Se dejó porque el cliente no pidió quitarla, pero se repite en pantalla.
+- [ ] Sigue **sin resolverse la URL de alta de la membresía** (los CTA de $1,111/año y $333/mes).
+
+Para verlo:
+```bash
+cd "/home/camilo23/FER PROYECT/web" && python3 -m http.server 3010
+```
+- http://localhost:3010/ → HOME
+- http://localhost:3010/thegame/ → THE GAME
+
+
+---
+
+## Ronda 2026-09-07 (noche, 2ª parte) · /thegame · sin publicar todavía
+
+Aplicadas **solo** las partes nombradas en el bloc de notas y en `RECOMENDACIONES/`.
+Nada más se tocó. **Todo en local, sin commit ni push.**
+
+- **Hero** — fuera el botón «Ver el trailer», fuera la frase lateral y fuera «Comunidad B-SHP»
+  de la lista de confianza. El texto pasa a «THE GAME es un sistema de ejecución de 7 días…» +
+  «Define tu Player…», y los tags a **7 días · 3 No Negociables · 1 Marcador**.
+  (La sección 02 — El trailer sigue existiendo; solo desaparece el enlace desde el hero.)
+- **01 — La tensión** — copy nuevo completo («Sabes lo que tienes que hacer. / Pero no siempre
+  lo haces.» … «Menos consumo. Más evidencia.») e **imagen sustituida** por `remplazar.jpeg`.
+- **06 — Product reveal** — copy nuevo; la secuencia pasa a `Observa → Decide → Ejecuta → Registra`.
+- **07 — Player Setup** — la lista de 8 entregables se sustituye por los **4 pasos de configuración**
+  (Define tu Player · Alter Ego · 3 No Negociables · Marcador) + remate
+  «Tu Player no se define por lo que promete…».
+- **08 — Black Sheep Test** — cabecera nueva, las 5 coordenadas se quedan solo con emoji + nombre +
+  verbo, y el cierre lleva a «¿Qué está frenando mi Juego?».
+- **09 — Bottleneck** — copy nuevo completo, ya sin la parte de Alter Ego, e **imagen sustituida**
+  por `09 THE BOTTLENECK CAMBIAR IMAGEN.jpeg`.
+- **10 — 3 No Negociables** — se mantiene el titular y las 3 cards; **solo cambia el cierre**
+  («Nada heroico…», «Cada No Negociable pasa por cuatro filtros», «Eliges lo que tu Player…»).
+- **13 — Founding Player Price** — copy reducido al que mandó el cliente.
+- **14 — Comunidad** — desaparece la mención a Skool: «La experiencia está diseñada alrededor
+  del movimiento».
+- **16 — El origen** — cambio único: `Registra → Observa → Ajusta → Vuelve`. Nada más.
+- **17 — La decisión** — el fondo fijo pasa a **vídeo en bucle** (`fondoanimado.mp4` →
+  `assets/video/decision-loop.mp4`, con póster).
+- **18 — Oferta final** — se quita «+ comunidad B-SHP correspondiente al producto» y el lockup
+  fijo pasa a **vídeo en bucle** (`imagen final.mp4` → `assets/video/oferta-final.mp4`,
+  reencodado a 1120 px sin audio, 7,2 MB → 4,0 MB, con póster).
+- **19 — FAQ** — se queda en **5 preguntas**. Se eliminan «¿Dónde se entrega?»,
+  «¿Qué pasa justo después de pagar?» y «¿Hay garantía?», y de la primera se quita
+  «y la capa de ejecución y comunidad correspondiente».
+
+Respaldo de la imagen sustituida en `originales-sustituidos/ronda-07sep-thegame/`.
+
+### Esto resuelve tres pendientes viejos
+- Las dos FAQ marcadas **POR CONFIRMAR** ya no están: Fer decidió eliminarlas.
+- La promesa de Skool/comunidad desaparece de hero, 07, 13, 14, 18 y FAQ, que era justo
+  lo que estaba abierto mientras no se cierre el journey Hotmart → Skool.
+
+### Criterio aplicado donde el bloc no lo decía letra por letra
+- Se conservó la numeración de los antetítulos («01 — La tensión», «09 — Bottleneck»…).
+- Se conservaron los botones de compra de cada sección: el bloc daba el copy, no pedía quitarlos.
+- En 08 se retiraron las dos tarjetas «Black Sheep Test pregunta / Alter Ego pregunta»: el copy
+  nuevo termina en esa misma pregunta y quedaban repetidas.
+- En 13 se retiró el precio grande tachado ($111 / $333) porque el copy nuevo ya trae la
+  comparativa una sola vez.
