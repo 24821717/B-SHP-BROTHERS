@@ -20,3 +20,5 @@ se cierre una decisión nueva, se añade aquí.
 | 8 | **El sitio se llama `bshp`, sin la O.** Pendiente sólo de renombrar en Netlify. | — | 06-sep |
 | 9 | **«The Game» del menú de la home lleva a la sección `#thegame`**, no a la sales page. A la sales page se entra por el CTA de esa sección. | home · nav | 08-sep |
 | 10 | **Desde /thegame siempre tiene que verse cómo volver a la home**, también en móvil: el botón va fuera del menú plegable. | /thegame · header | 08-sep |
+| 11 | **Los textos legales se publican tal cual los entrega el cliente.** Sólo se quitan las notas del redactor dirigidas a él, y se dejan anotadas. | `/legal/` | 08-sep |
+| 12 | **Ningún enlace legal apunta a `#`.** Las tres páginas existen y están enlazadas desde las dos webs. | pies de página | 08-sep |

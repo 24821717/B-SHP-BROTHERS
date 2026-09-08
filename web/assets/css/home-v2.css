@@ -216,7 +216,7 @@ h1,h2,h3{color:var(--crema);font-family:var(--ff-display);font-weight:700;line-h
     linear-gradient(180deg,#0B0B0B 0%,rgba(11,11,11,0) 16%,rgba(11,11,11,0) 82%,#0B0B0B 100%);
 }
 /* la cascada "cliente → colaboración → socio → empresa": escalera, no párrafos sueltos */
-.escala{gap:.75rem;margin-top:1.35rem;padding-left:1.35rem;border-left:1px solid rgba(212,175,55,.3)}
+.escala{gap:.75rem;padding-left:1.35rem;border-left:1px solid rgba(212,175,55,.3)}
 .escala li{font-size:clamp(1rem,1.15vw,1.12rem)}
 .escala li::before{width:5px;height:5px;opacity:.9}
 
@@ -243,6 +243,12 @@ h1,h2,h3{color:var(--crema);font-family:var(--ff-display);font-weight:700;line-h
 
 /* highlight: tres líneas con filo de oro */
 .highlight{border-left:2px solid var(--oro);padding-left:1.35rem;margin:0}
+/* Los bloques con filo de oro (el highlight, la lista de la vida, la escalera de
+   los negocios) venían pegados a la frase que los introduce. Respiran más que un
+   párrafo normal: son un cambio de registro, no la línea siguiente. */
+.stack > .highlight,
+.stack > .lista,
+.stack > .escala{margin-top:clamp(1.9rem,3.4vw,2.6rem)}
 .highlight p{margin:0;font-family:var(--ff-display);font-weight:600;color:var(--crema);font-size:clamp(.95rem,1.35vw,1.2rem);line-height:1.7;letter-spacing:.06em;text-transform:uppercase}
 
 /* lista de "algo en común" */

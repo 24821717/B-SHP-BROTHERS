@@ -324,3 +324,57 @@ Cuatro correcciones sobre el sitio ya publicado, vistas desde el móvil:
 
 El enlace «The Game» del **pie** de la home sigue apuntando a la sales page: en un
 footer lo normal es enlazar la página, y el bloc sólo hablaba del menú de arriba.
+
+
+---
+
+## Ronda 2026-09-08 (tarde-noche) · legales publicados · sin publicar todavía
+
+### 1. Aviso de privacidad y Términos y condiciones — **ya no son placeholders**
+Publicados íntegros los dos textos que mandó el cliente, maquetados con el lenguaje
+visual del sitio: `/legal/privacidad.html` (15 apartados) y `/legal/terminos.html`
+(23 apartados). Comprobado apartado por apartado contra el original.
+
+**Se quitaron tres párrafos**, y sólo tres: son notas del redactor dirigidas al
+cliente, no articulado que deba leer un usuario. Quedan aquí por si se quieren
+recuperar:
+
+1. §1 de Términos — *«Antes de publicación definitiva recomendamos sustituir
+   "Fernando L. G." por el nombre legal completo y completar el domicilio con
+   municipio, estado y código postal.»*
+2. §6 de Términos — *«PROFECO considera el monto total a pagar, precios en moneda
+   nacional y formas de pago entre los elementos relevantes de transparencia para una
+   tienda virtual.»*
+3. §13 de Términos — *«Este punto es importante: no recomiendo publicar una cláusula
+   genérica de "NO HAY REEMBOLSOS BAJO NINGUNA CIRCUNSTANCIA"…»*
+
+### 2. Contacto
+`/legal/contacto.html` deja de ser un placeholder: lleva el correo, los datos del
+responsable, los tres asuntos de solicitud («Solicitud ARCO», «Limitación de datos
+personales», «Revocación de consentimiento») y las redes. **No venía en el bloc**: se
+montó con los datos que el propio bloc aporta, para que ningún enlace del pie siga
+muerto. Fácil de revertir si no se quiere.
+
+### 3. Enlaces legales
+En `/thegame` los tres enlaces del pie apuntaban a `#`. Ya van a las páginas reales.
+En la home ya estaban bien. **Ningún enlace legal queda muerto en el sitio.**
+
+### 4. Las cuatro fotos de la tira
+Sustituidas por `remplazo1..4` (`assets/img/home/tira-1..4.jpg`). Comprobado: sigue sin
+haber ninguna imagen repetida en la home salvo el logo. Las seis `exp-*.jpg` quedan sin
+uso pero no se borran, por si se quieren recuperar.
+
+### 5. Tres espaciados
+El highlight de Black Sheep, la lista de Lifestyle y la escalera de los negocios iban
+pegados a la frase que los introduce. Ahora respiran más que un párrafo normal: son un
+cambio de registro, no la línea siguiente. Una sola regla para los tres.
+
+### Pendiente del cliente sobre los legales
+- [ ] **El nombre legal completo** en lugar de «Fernando L. G.», y el **domicilio con
+      municipio, estado y código postal**. Lo pedía la propia nota del redactor.
+- [ ] Ojo: el Aviso de Privacidad §5 y los Términos §8 **mencionan Skool** como posible
+      proveedor. No contradice la decisión de no prometer comunidad en la página de
+      venta —una cosa es divulgar proveedores en un texto legal y otra prometer una
+      capa de producto—, pero conviene que Fer lo sepa.
+- [ ] Falta **política de envíos y devoluciones para producto físico** (los Goods).
+      Los Términos actuales están escritos para producto digital.
