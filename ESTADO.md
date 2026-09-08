@@ -378,3 +378,28 @@ cambio de registro, no la línea siguiente. Una sola regla para los tres.
       capa de producto—, pero conviene que Fer lo sepa.
 - [ ] Falta **política de envíos y devoluciones para producto físico** (los Goods).
       Los Términos actuales están escritos para producto digital.
+
+
+---
+
+## Ronda 2026-09-08 (18:00) · /thegame · sin publicar todavía
+
+- **#01 — La tensión** — fuera el CTA «Empezar a demostrarlo». La sección queda
+  cerrada sin llamada a la acción, como pidió el cliente.
+- **#03 — El problema real** — el remate viejo («Ahí está la distancia…») se sustituye
+  por el nuevo: «Y ahí está el problema. / Puedes saber exactamente qué hacer y seguir
+  sin hacerlo. / THE GAME no existe para darte más información. Existe para convertir
+  una decisión en ejecución. / Porque saber no cuenta. Hacer sí.»
+- **#18 — Oferta final** — el loop de la explosión se sustituye por el de la **nave
+  espacial** (`nave espacial.mp4`, reencodado sin audio a su tamaño nativo: 3,9 → 3,0 MB).
+- **CLOSING FINAL** — reconstruido:
+  - Fuera el fondo fijo (`gate-banner.jpg`) y fuera el lockup: en su lugar, el **loop de
+    la explosión** de fondo. Es el mismo vídeo que estaba en el §18, así que se reutiliza
+    el archivo ya optimizado; no se sube peso nuevo.
+  - Titular central nuevo: **«La intención no cuenta. La evidencia cuenta.»**
+  - **Se retiran los dos textos inclinados** de los lados, que decían exactamente esa
+    misma frase. *Decisión consultada con Marcela*: con el titular puesto, la frase
+    salía dos veces en móvil y tres en escritorio.
+  - **Botón de volver a la home** al final de la sección.
+  - Se queda todo lo demás: «7 días · Sin promesas · Solo evidencia», el botón de compra,
+    el Founding Player Price y «Si no entras, que sea porque decidiste no entrar».

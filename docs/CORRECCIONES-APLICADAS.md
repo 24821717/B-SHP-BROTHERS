@@ -22,3 +22,5 @@ se cierre una decisión nueva, se añade aquí.
 | 10 | **Desde /thegame siempre tiene que verse cómo volver a la home**, también en móvil: el botón va fuera del menú plegable. | /thegame · header | 08-sep |
 | 11 | **Los textos legales se publican tal cual los entrega el cliente.** Sólo se quitan las notas del redactor dirigidas a él, y se dejan anotadas. | `/legal/` | 08-sep |
 | 12 | **Ningún enlace legal apunta a `#`.** Las tres páginas existen y están enlazadas desde las dos webs. | pies de página | 08-sep |
+| 13 | **#01 — La tensión va sin CTA.** Sección cerrada. | /thegame · 01 | 08-sep |
+| 14 | **El cierre de /thegame no lleva lockup ni textos inclinados**: titular «La intención no cuenta. La evidencia cuenta.» sobre el loop, y botón de volver. | /thegame · closing | 08-sep |

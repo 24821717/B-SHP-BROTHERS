@@ -406,6 +406,15 @@ a.hotmart-fb.hotmart__button-checkout.btn{
 .finale .bg img{opacity:.42}
 .finale .bg::after{background:radial-gradient(95% 70% at 50% 52%,rgba(11,11,11,.72),rgba(11,11,11,.93) 62%,#0B0B0B 100%)}
 .finale__lock{width:min(84%,640px);margin:0 auto 2rem;filter:drop-shadow(0 20px 60px rgba(0,0,0,.9))}
+/* cierre: el lockup y los inclinados dejan paso al titular sobre el loop */
+.finale__h{
+  font-size:clamp(1.9rem,5.2vw,3.7rem);text-transform:uppercase;font-weight:600;
+  line-height:1.05;letter-spacing:-.01em;color:#fff;margin:0 0 2.2rem;
+  text-shadow:0 8px 40px rgba(0,0,0,.85);
+}
+.finale__volver{--pad:.78rem 1.5rem;margin-top:2.8rem;font-size:.68rem}
+.finale__volver i{font-style:normal;transition:transform .3s}
+.finale__volver:hover i{transform:translateX(-3px)}
 .tilt-l,.tilt-r{
   position:absolute;top:clamp(4rem,12vh,9rem);font-family:var(--ff-display);font-weight:700;
   font-size:clamp(.9rem,2.1vw,1.7rem);line-height:1.1;text-transform:uppercase;text-shadow:0 6px 30px rgba(0,0,0,.95);z-index:3;
