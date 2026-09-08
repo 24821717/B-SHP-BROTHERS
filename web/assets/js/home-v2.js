@@ -142,24 +142,110 @@
 })();
 
 /* ============================================================
-   B-SHP GOODS · ficha de pieza
-   Cada .pieza lleva data-pieza (nombre) y data-img (ruta de la
-   foto real, hoy vacía). Cuando lleguen los assets basta con
-   rellenar data-img en el HTML: esto ya la muestra.
+   B-SHP GOODS · catálogo y compra
+   ------------------------------------------------------------
+   ESTE ES EL ÚNICO SITIO QUE HAY QUE TOCAR PARA PONER LA TIENDA
+   EN MARCHA. Por cada pieza:
+
+     precio : número en dólares, sin símbolo   → 45
+     enlace : el Payment Link de Stripe        → 'https://buy.stripe.com/xxxxxxxx'
+
+   Regla de seguridad: una pieza sólo se pone a la venta cuando
+   tiene LAS DOS COSAS. Si falta cualquiera, sigue mostrando
+   «Próximamente» y no se puede comprar. Así nunca se publica un
+   precio sin cobro detrás, ni un cobro sin precio a la vista.
+
+   Ejemplo de una pieza ya activa:
+     camiseta: { precio: 45, enlace: 'https://buy.stripe.com/3cs00l9aX2b1abc' },
    ============================================================ */
+var GOODS = {
+  camiseta: { precio: null, enlace: '' },
+  sudadera: { precio: null, enlace: '' },
+  gorra:    { precio: null, enlace: '' },
+  bucket:   { precio: null, enlace: '' },
+  termo:    { precio: null, enlace: '' },
+  taza:     { precio: null, enlace: '' }
+};
+
+/* Envío: se calcula en el checkout de Stripe. Este texto es sólo el aviso
+   que se ve bajo el botón. Vacío = no se muestra. */
+var GOODS_ENVIO = 'Envío calculado en el pago';
+
+/* Vista de prueba: abrir la home con ?demo=1 al final de la URL rellena
+   precios de ejemplo para ver cómo queda la tienda montada. No cobra nada
+   (los botones no llevan a ningún checkout) y sólo se activa con ese
+   parámetro: la página normal nunca lo muestra. */
+var GOODS_DEMO = { camiseta: 45, sudadera: 75, gorra: 39, bucket: 42, termo: 49, taza: 29 };
+
 (function () {
   'use strict';
+
+  var demo = /[?&]demo=1(&|$)/.test(location.search);
+  if (demo) {
+    Object.keys(GOODS_DEMO).forEach(function (id) {
+      if (GOODS[id] && GOODS[id].precio == null) {
+        GOODS[id] = { precio: GOODS_DEMO[id], enlace: '#', demo: true };
+      }
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      var aviso = document.createElement('p');
+      aviso.textContent = 'Vista de prueba · precios de ejemplo, ningún botón cobra';
+      aviso.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:200;margin:0;' +
+        'padding:.7rem 1rem;text-align:center;background:#D4AF37;color:#0B0B0B;' +
+        'font:600 .68rem/1.4 Poppins,sans-serif;letter-spacing:.2em;text-transform:uppercase';
+      document.body.appendChild(aviso);
+    });
+  }
+
+  function alaVenta(id) {
+    var p = GOODS[id];
+    return !!(p && typeof p.precio === 'number' && p.precio > 0 && p.enlace);
+  }
+
+  function precioTexto(id) {
+    var p = GOODS[id];
+    var n = p.precio;
+    var txt = (n % 1 === 0) ? String(n) : n.toFixed(2);
+    return '$' + txt + ' <b>USD</b>';
+  }
+
+  /* ---------- 1. el pie de cada pieza de la rejilla ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.pieza'), function (pieza) {
+    var caja = pieza.querySelector('[data-compra]');
+    if (!caja) return;
+    var id = pieza.getAttribute('data-id') || '';
+    var nombre = pieza.getAttribute('data-pieza') || '';
+
+    if (!alaVenta(id)) {
+      caja.innerHTML = '<span class="pieza__estado">Próximamente</span>';
+      return;
+    }
+
+    var html = '<p class="pieza__precio">' + precioTexto(id) + '</p>' +
+      '<a class="btn btn--gold pieza__cta" href="' + GOODS[id].enlace + '" ' +
+      'data-track="comprar_click" data-track-from="goods_' + id + '">' +
+      'Comprar <i>&rarr;</i></a>';
+    if (GOODS_ENVIO) html += '<p class="pieza__envio">' + GOODS_ENVIO + '</p>';
+    caja.innerHTML = html;
+    caja.querySelector('a').setAttribute('aria-label', 'Comprar ' + nombre);
+  });
+
+  /* ---------- 2. la ficha ampliada ---------- */
   var ficha = document.getElementById('ficha');
   if (!ficha) return;
 
   var visual = document.getElementById('fichaVisual');
   var nombre = document.getElementById('fichaNombre');
+  var precio = document.getElementById('fichaPrecio');
+  var estado = document.getElementById('fichaEstado');
+  var cta    = document.getElementById('fichaCta');
   var cerrar = document.getElementById('fichaCerrar');
   var previo = null;
 
   function abrir(pieza) {
     var img = pieza.getAttribute('data-img') || '';
     var nom = pieza.getAttribute('data-pieza') || '';
+    var id  = pieza.getAttribute('data-id') || '';
     nombre.textContent = nom;
 
     var el = visual.querySelector('img');
@@ -171,6 +257,20 @@
       el.src = 'assets/img/pina.png';
       el.alt = '';
       el.classList.remove('real');
+    }
+
+    if (alaVenta(id)) {
+      precio.innerHTML = precioTexto(id);
+      precio.hidden = false;
+      estado.hidden = true;
+      cta.href = GOODS[id].enlace;
+      cta.setAttribute('data-track-from', 'ficha_' + id);
+      cta.setAttribute('aria-label', 'Comprar ' + nom);
+      cta.hidden = false;
+    } else {
+      precio.hidden = true;
+      estado.hidden = false;
+      cta.hidden = true;
     }
 
     previo = document.activeElement;

@@ -1,0 +1,22 @@
+# Decisiones que ya están tomadas — no revertir
+
+Registro de las correcciones que el cliente ya pidió y que **ya están aplicadas**.
+Existe porque el 08-sep se reintrodujo una que ya se había hecho (el punto de
+AGENTIA) al copiar literalmente el bloc de notas.
+
+**Leer este archivo antes de aplicar una tanda nueva.** Si el bloc de notas de Fer
+contradice algo de esta lista, gana la lista: es una decisión ya cerrada. Y cuando
+se cierre una decisión nueva, se añade aquí.
+
+| # | Decisión | Dónde | Cerrada |
+|---|---|---|---|
+| 1 | **AGENTIA LABS, sin punto.** Nunca «Agent.IA». Aunque el brief lo escriba con punto. | ficha de marca 03, pie de la sección de Fer, footer | 06-sep, repetida el 08-sep |
+| 2 | **«Ese es el punto.»** va pegado debajo de «No tienes que pensar como nosotros», no suelto y centrado. | home · The Black Sheep | 07-sep |
+| 3 | **Nada de Spotify.** Las redes son Instagram, TikTok, YouTube, X y WhatsApp. | footer de las dos páginas | 07-sep |
+| 4 | **No se promete Skool ni «comunidad»** mientras el journey Hotmart → Skool siga abierto. | /thegame: hero, 07, 13, 14, 18 y FAQ | 07-sep |
+| 5 | **El FAQ son 5 preguntas.** Nada de respuestas «Por confirmar» publicadas. | /thegame · 19 | 07-sep |
+| 6 | **Ninguna imagen se repite entre secciones.** | toda la home | 08-sep |
+| 7 | **Una pieza de Goods sólo se pone a la venta con precio Y enlace.** Si falta uno, «Próximamente». | `GOODS` en `home-v2.js` | 07-sep |
+| 8 | **El sitio se llama `bshp`, sin la O.** Pendiente sólo de renombrar en Netlify. | — | 06-sep |
+| 9 | **«The Game» del menú de la home lleva a la sección `#thegame`**, no a la sales page. A la sales page se entra por el CTA de esa sección. | home · nav | 08-sep |
+| 10 | **Desde /thegame siempre tiene que verse cómo volver a la home**, también en móvil: el botón va fuera del menú plegable. | /thegame · header | 08-sep |

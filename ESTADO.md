@@ -249,3 +249,78 @@ Respaldo de la imagen sustituida en `originales-sustituidos/ronda-07sep-thegame/
   nuevo termina en esa misma pregunta y quedaban repetidas.
 - En 13 se retiró el precio grande tachado ($111 / $333) porque el copy nuevo ya trae la
   comparativa una sola vez.
+
+
+---
+
+## Ronda 2026-09-07 (noche, 3ª parte) · GOODS con cobro en USD · sin publicar
+
+La sección **B-SHP Goods** de la home deja de ser un escaparate: queda montada como
+tienda, **apagada**, a la espera de los precios y los enlaces de Fer.
+
+- Cada pieza tiene ahora **precio + botón «Comprar»** en lugar del sello «Próximamente»,
+  tanto en la rejilla como en la ficha ampliada.
+- La pasarela recomendada es **Stripe con Payment Links**: cobra en dólares desde
+  México y no necesita servidor, así que el sitio sigue siendo estático en Netlify.
+  El razonamiento completo, los requisitos de alta y la alternativa (Mercado Pago,
+  si acepta cobrar en pesos) están en **`docs/PAGOS-GOODS.md`**.
+- Todo se enciende desde un único bloque `GOODS` al final de `web/assets/js/home-v2.js`.
+  **Una pieza sólo sale a la venta si tiene precio Y enlace**: si falta cualquiera de
+  los dos sigue mostrando «Próximamente». Imposible publicar un precio sin cobro
+  detrás, o al revés.
+- Para verlo montado sin datos reales: abrir la home con **`?demo=1`**. Rellena precios
+  de ejemplo, avisa en pantalla de que es una prueba y no cobra nada.
+- Detalle técnico: el marco de la ficha pasó del `<button>` al `<article>`, porque un
+  enlace de compra no puede vivir dentro de un botón. El comportamiento visual es idéntico.
+
+### Bloqueante para vender
+- [ ] **Los seis precios en USD y los seis Payment Links** de Fer (tabla en
+      `docs/PAGOS-GOODS.md` §3).
+- [ ] **Tallas reales** de camiseta, sudadera, gorra y bucket: van como campo
+      personalizado dentro de cada Payment Link.
+- [ ] **A dónde se envía y a qué precio** (tarifas de envío en Stripe).
+- [ ] **Devoluciones, envíos, privacidad, términos y datos fiscales**: vendiendo
+      producto físico dejan de ser opcionales y `/legal/…` sigue vacío.
+
+
+---
+
+## Ronda 2026-09-08 (mediodía) · repaso de Marcela en móvil · sin publicar
+
+Cuatro correcciones sobre el sitio ya publicado, vistas desde el móvil:
+
+1. **AGENTIA LABS, sin punto** — en la ficha de la marca 03 y en el pie de la sección
+   de Fer decía «Agent.IA Labs». **Esto ya se había corregido antes**: se coló otra vez
+   al copiar el bloc de notas literalmente, que lo escribe con punto.
+   Para que no vuelva a pasar se crea **`docs/CORRECCIONES-APLICADAS.md`**: el registro
+   de decisiones cerradas, que hay que leer antes de aplicar cada tanda nueva. Si el
+   bloc contradice ese registro, gana el registro.
+2. **«Hola. Soy Fer Longoria.»** iba todo en una línea y en móvil quedaba pegado.
+   Ahora «Hola.» va en su propia línea.
+3. **La tira de fotos bajo The Brothers repetía** las imágenes de Brothers y Lifestyle
+   del ecosistema. Pasa a usar las fotos de experiencias (viajes, ciudades,
+   entrenamiento, encuentros), que quedaron libres al montar las 9 marcas.
+   Comprobado: ya no hay ninguna imagen repetida en la home salvo el logo.
+4. **/thegame · 03** — «No con más motivación.» y «Con una partida.» iban pegadas
+   en la misma línea. Separadas.
+
+
+---
+
+## Ronda 2026-09-08 (tarde) · sin publicar
+
+1. **Volver a la home desde /thegame.** El enlace existía, pero vivía **dentro del menú
+   plegable**: en móvil no se veía sin abrir la hamburguesa, que es justo donde Marcela
+   lo echó en falta. Ahora es un botón propio en la barra, **fuera del menú y siempre
+   visible**; por debajo de 560 px se queda sólo con la flecha para que quepa.
+2. **«The Game» del menú de la home** lleva a la sección `#thegame` en vez de saltar a
+   la sales page. A la sales page se sigue entrando por el CTA de esa sección
+   («Entrar a The Game — $111 MXN»), que es el embudo correcto. *(El cambio ya estaba
+   hecho en el archivo local; queda confirmado y sale con este push: en vivo todavía
+   está el enlace viejo.)*
+3. **Camiseta de Goods**: sustituida por la foto correcta (`esta es la playera
+   correcta.jpeg`, la del delantero + espalda con «MIS REGLAS. MI JUEGO.»). La anterior
+   queda en `originales-sustituidos/ronda-07sep/camiseta-anterior.jpg`.
+
+El enlace «The Game» del **pie** de la home sigue apuntando a la sales page: en un
+footer lo normal es enlazar la página, y el bloc sólo hablaba del menú de arriba.
