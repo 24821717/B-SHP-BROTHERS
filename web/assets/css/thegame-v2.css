@@ -406,7 +406,12 @@ a.hotmart-fb.hotmart__button-checkout.btn{
 .finale .bg img{opacity:.42}
 .finale .bg::after{background:radial-gradient(95% 70% at 50% 52%,rgba(11,11,11,.72),rgba(11,11,11,.93) 62%,#0B0B0B 100%)}
 .finale__lock{width:min(84%,640px);margin:0 auto 2rem;filter:drop-shadow(0 20px 60px rgba(0,0,0,.9))}
-/* cierre: el lockup y los inclinados dejan paso al titular sobre el loop */
+/* cierre: sin fondo. El loop ocupa el sitio exacto que tenía el lockup. */
+.finale__loop{
+  display:block;width:min(84%,640px);margin:0 auto 2rem;border-radius:3px;
+  box-shadow:0 30px 80px -50px rgba(212,175,55,.55);
+}
+/* el titular, ya sin lockup ni inclinados */
 .finale__h{
   font-size:clamp(1.9rem,5.2vw,3.7rem);text-transform:uppercase;font-weight:600;
   line-height:1.05;letter-spacing:-.01em;color:#fff;margin:0 0 2.2rem;

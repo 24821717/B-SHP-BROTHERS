@@ -435,3 +435,35 @@ Dos apuntes:
   de Fer, que ya tiene el repo. No compensa.
 - El peso real del sitio sigue estando en `vsl.mp4` (28 MB) y `trailer.mp4` (19 MB).
   Si hace falta adelgazar de verdad, ahí está el margen: se reencodan sin que se note.
+
+
+---
+
+## Ronda 2026-09-08 (19:00) · corrección del cierre + medición de los vídeos
+
+### El cierre, bien entendido esta vez
+La orden era **quitar el fondo y sustituir la imagen por el loop**, no poner el loop
+de fondo. Corregido: la sección **ya no tiene fondo** y el loop de la explosión ocupa
+**el sitio exacto que tenía el lockup** (mismo ancho: `min(84%,640px)`), centrado sobre
+el negro. El titular, el botón de volver y todo lo demás se quedan como estaban.
+
+### Reencodar `vsl.mp4` y `trailer.mp4`: **no se hace**, y está medido
+Yo mismo lo había propuesto suponiendo que estaban gordos. No lo están:
+1920×1080 a 60 fps con **2,9 y 3,5 Mbps**. Para 1080p60 eso ya es un encode ajustado
+(lo habitual son 6–12 Mbps).
+
+Prueba sobre un tramo de 15 s del VSL:
+
+| | Tamaño | Contra el original |
+|---|---|---|
+| Original | 5,15 MB | — |
+| Reencodado CRF 23 | 5,56 MB | **+8 %** |
+| Reencodado CRF 20 | 7,21 MB | **+40 %** |
+
+Reencodar sin perder calidad **engorda el archivo**, porque sería una segunda pasada
+con pérdidas encima de una primera ya apretada. Para que adelgazara habría que bajar
+de CRF 23, y ahí sí se degrada. Se quedan como están.
+
+Lo único que los bajaría de verdad es reducir la resolución a 1280 —los reproductores
+no pasan de 1060 px de ancho—, pero eso se nota en pantalla completa. Queda anotado por
+si algún día pesa más la velocidad que el detalle.
