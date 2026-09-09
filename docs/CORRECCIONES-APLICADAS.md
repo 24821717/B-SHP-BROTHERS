@@ -23,4 +23,5 @@ se cierre una decisión nueva, se añade aquí.
 | 11 | **Los textos legales se publican tal cual los entrega el cliente.** Sólo se quitan las notas del redactor dirigidas a él, y se dejan anotadas. | `/legal/` | 08-sep |
 | 12 | **Ningún enlace legal apunta a `#`.** Las tres páginas existen y están enlazadas desde las dos webs. | pies de página | 08-sep |
 | 13 | **#01 — La tensión va sin CTA.** Sección cerrada. | /thegame · 01 | 08-sep |
-| 14 | **El cierre de /thegame no lleva lockup ni textos inclinados**: titular «La intención no cuenta. La evidencia cuenta.» sobre el loop, y botón de volver. | /thegame · closing | 08-sep |
+| 14 | **El cierre de /thegame**: imagen (lockup) sin fondo, titular «La intención no cuenta. La evidencia cuenta.», **un solo** botón de compra, y el volver en su franja debajo de la sección. | /thegame · closing | 08-sep |
+| 15 | **Un vídeo que cambia de contenido cambia de nombre.** `/assets/video/*` se sirve con caché de un año e `immutable`: reutilizar el nombre deja al cliente viendo el vídeo viejo y el navegador ni pregunta. | `assets/video/` | 08-sep |

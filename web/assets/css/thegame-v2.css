@@ -417,9 +417,6 @@ a.hotmart-fb.hotmart__button-checkout.btn{
   line-height:1.05;letter-spacing:-.01em;color:#fff;margin:0 0 2.2rem;
   text-shadow:0 8px 40px rgba(0,0,0,.85);
 }
-.finale__cta{margin-top:2.8rem}
-.finale__cta .price__foot{margin-top:1rem}
-
 /* franja de regreso a la home, entre el cierre y el pie */
 .volver-pie{
   padding:2.2rem 0;text-align:center;

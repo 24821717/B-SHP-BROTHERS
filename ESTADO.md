@@ -467,3 +467,29 @@ de CRF 23, y ahí sí se degrada. Se quedan como están.
 Lo único que los bajaría de verdad es reducir la resolución a 1280 —los reproductores
 no pasan de 1060 px de ancho—, pero eso se nota en pantalla completa. Queda anotado por
 si algún día pesa más la velocidad que el detalle.
+
+
+---
+
+## Ronda 2026-09-08 (20:00) · dos correcciones
+
+### 1. El §18 sí tenía la nave, pero nadie la veía: era la caché
+El archivo del servidor era el correcto —comprobado extrayendo un fotograma: la nave
+sobre la Tierra—, pero seguía llamándose `oferta-final.mp4`, el mismo nombre que antes
+tenía la explosión. Y `/assets/video/*` se sirve con
+`Cache-Control: max-age=31536000, immutable`: con `immutable` el navegador **ni
+siquiera pregunta**, así que todo el que hubiera abierto la página antes seguía viendo
+la explosión, y Ctrl+F5 no siempre basta.
+
+Es exactamente el caso que advierte el comentario del `netlify.toml`: *«los vídeos van
+con caché larga porque, cuando cambian, cambian de nombre»*. Yo reutilicé el nombre.
+
+**Arreglado renombrando**: `oferta-final.mp4` → **`nave-espacial.mp4`** (y su póster).
+URL nueva, caché nueva, se ve al instante.
+
+Queda como regla nº 15 en `docs/CORRECCIONES-APLICADAS.md`.
+
+### 2. El cierre tenía dos veces «Entrar al juego»
+Al mover el botón de volver y poner un CTA en su hueco, quedó duplicado con el que ya
+había. Se retira **el último**, el añadido. El cierre queda con un único botón de compra,
+en su sitio de siempre.
