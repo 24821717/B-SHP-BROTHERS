@@ -1,0 +1,38 @@
+# B-SHP BROTHERS — Apache
+# Colocar en la raíz del sitio (junto a index.html).
+
+# --- índice de directorio: /thegame/ y /legal/ sirven su index.html ---
+DirectoryIndex index.html
+
+# --- forzar HTTPS (obligatorio: el checkout de Hotmart no abre en http) ---
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# --- tipos MIME ---
+<IfModule mod_mime.c>
+  AddType video/mp4 .mp4
+  AddType image/svg+xml .svg
+  AddType image/webp .webp
+</IfModule>
+
+# --- compresión (texto sí; imágenes y vídeo NO, ya vienen comprimidos) ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- caché ---
+# Los vídeos, un año: pesan mucho y cuando cambian, cambian de nombre.
+# El HTML, el CSS, el JS y las imágenes NO se cachean mientras el sitio esté en
+# revisión: se cachearon una vez y el cliente siguió viendo el logo viejo días
+# después de arreglarlo. Con ETag la respuesta es un 304 y no cuesta nada.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(mp4|webm)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(html|css|js|jpg|jpeg|png|webp|svg|ico)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
