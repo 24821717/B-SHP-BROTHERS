@@ -5,6 +5,23 @@
 
 [build]
   publish = "web"
+  # BLACKBRO habla con Dify desde aqui: la API Key vive en la funcion,
+  # nunca en el navegador ni en el repo.
+  functions = "netlify/functions"
+
+# El front llama siempre a /api/blackbro/chat. Este redirect lo lleva a la
+# funcion sin que el navegador sepa que hay una funcion detras.
+[[redirects]]
+  from = "/api/blackbro/*"
+  to = "/.netlify/functions/blackbro-chat"
+  status = 200
+  force = true
+
+# La conversacion nunca se cachea.
+[[headers]]
+  for = "/api/blackbro/*"
+  [headers.values]
+    Cache-Control = "no-store"
 
 # Los vídeos sí van con caché larga: pesan mucho y, cuando cambian, cambian de
 # nombre.

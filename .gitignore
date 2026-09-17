@@ -25,3 +25,13 @@ desktop.ini
 *.log
 .netlify/
 node_modules/
+
+# ---- Brief interno de las secciones nuevas (el repo es publico) ----
+secciones nuevas/
+
+# ---- Claves. NUNCA al repo. ----
+# La DIFY_API_KEY de BLACKBRO vive en Netlify (Site configuration >
+# Environment variables) y, en local, en un .env que no se versiona.
+.env
+.env.*
+!.env.example

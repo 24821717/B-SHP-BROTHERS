@@ -1,8 +1,10 @@
 # ESTADO — B-SHP BROTHERS
 
-**Última actualización:** 2026-09-07
-**Estado:** las **dos** páginas construidas y **PUBLICADAS** — la HOME (`/`) y la sales page
-(`/thegame`). Pendiente: que Marcela las revise y que Fer confirme las reservas.
+**Última actualización:** 2026-09-17
+**Estado:** **tres** páginas: la HOME (`/`), la sales page (`/thegame`) y **BLACKBRO
+(`/blackbro`) — nueva, 17-sep, en local**. Las dos primeras están publicadas.
+BLACKBRO está 🔵 BUILT: falta la `DIFY_API_KEY` de Fer para probar P0 y darla por E2E PASS.
+Detalle en **`docs/PROPUESTA-BLACKBRO.md`**.
 
 - **En vivo:** https://b-shopbrothers.netlify.app (home) ·
   https://b-shopbrothers.netlify.app/thegame/
@@ -41,9 +43,16 @@ FER PROYECT/
 ├── docs/
 │   ├── PROPUESTA-THEGAME.md      ← qué se construyó + §8 la ronda de correcciones
 │   └── PROPUESTA-HOME.md         ← qué se construyó en la home + reservas
+├── secciones nuevas/             ← brief de las 2 secciones que pidió Fer (16-sep)
+│   ├── blackbro/                 ← copy master V1.1 + mockup + assets del Drive
+│   └── founders333/              ← VACÍA: falta que Fer mande el material
+├── netlify/functions/
+│   └── blackbro-chat.mjs         ← EL ÚNICO SITIO QUE CONOCE LA API KEY DE DIFY
+├── scripts/dev.mjs               ← servidor local que SÍ ejecuta la función
 └── web/                          ← EL SITIO
     ├── index.html                ← LA HOME
     ├── thegame/index.html        ← LA SALES PAGE
+    ├── blackbro/index.html       ← BLACKBRO
     └── assets/{css,js,img,video}
 ```
 
@@ -52,11 +61,17 @@ FER PROYECT/
 ## Cómo verlas
 
 ```bash
-cd "/home/camilo23/FER PROYECT/web" && python3 -m http.server 3010
+cd "/home/camilo23/FER PROYECT" && node scripts/dev.mjs
 ```
 
 - **http://localhost:3010/** — la home
 - **http://localhost:3010/thegame/** — la sales page
+- **http://localhost:3010/blackbro/** — BLACKBRO
+
+> Ojo: para BLACKBRO ya **no sirve** `python3 -m http.server`. El chat necesita que
+> alguien ejecute la función que habla con Dify, y eso lo hace `scripts/dev.mjs`.
+> Para probar el chat de verdad: `DIFY_API_KEY=app-xxxx node scripts/dev.mjs`.
+> Sin key, la página se ve igual y el chat avisa de que aún no está conectado.
 
 **Publicar en Netlify** (una sola vez; después se despliega solo en cada `git push`):
 1. app.netlify.com → *Add new site* → *Import an existing project* → GitHub
@@ -66,6 +81,20 @@ cd "/home/camilo23/FER PROYECT/web" && python3 -m http.server 3010
 ---
 
 ## Pendiente
+
+### BLOQUEANTE para que BLACKBRO funcione
+- [ ] **La `DIFY_API_KEY`.** La pone **Fer**, en Netlify → *Site configuration →
+      Environment variables*, y después *Trigger deploy → Clear cache and deploy*.
+      No pasa por el repo, ni por el navegador, ni por WhatsApp. Los tres pasos
+      están escritos para él al principio de `docs/PROPUESTA-BLACKBRO.md`.
+- [ ] **ACCESS RULE:** ¿BLACKBRO V1 es público, acceso B-SHP, beta o gated?
+      No bloquea el build; **sí bloquea LIVE**. Hasta que se decida, no hay FAQ de
+      precio, membresía, disponibilidad ni elegibilidad (las tres preguntas están
+      escritas y comentadas dentro de `web/blackbro/index.html`).
+- [ ] **Production wordmark master** de BLACKBRO (vectorizable + exports). Los PNG
+      del Drive se usan como están, sin rediseñar: sirven en negro, tienen halo de
+      color en los bordes.
+- [ ] **Founders333:** la segunda sección que pidió Fer. La carpeta está vacía.
 
 ### BLOQUEANTE para publicar la home
 - [ ] **Falta la URL de alta de la membresía.** Los dos CTA principales de la home
@@ -493,3 +522,33 @@ Queda como regla nº 15 en `docs/CORRECCIONES-APLICADAS.md`.
 Al mover el botón de volver y poner un CTA en su hueco, quedó duplicado con el que ya
 había. Se retira **el último**, el añadido. El cierre queda con un único botón de compra,
 en su sitio de siempre.
+
+
+---
+
+## Ronda 2026-09-17 · BLACKBRO · sin publicar todavía
+
+Fer pidió **dos secciones nuevas** que salen de la página principal: **BlackBro** y
+**Founders333**. Mandó el material de la primera (`secciones nuevas/blackbro/`):
+el *LANDING COPY + BUILD MASTER V1.1*, el mockup de cómo quiere que se vea y los
+assets del Drive.
+
+Construido:
+
+1. **`/blackbro`** — los siete bloques del mockup con el copy congelado del V1.1,
+   y el chat real conectado al Chatflow de Dify a través de una función propia.
+   Las 6 Quick Actions precargan la intención en vez de auto-enviarla, como manda
+   el patch. Los siete eventos de tracking, instrumentados.
+2. **La puerta en la home** — sección nueva entre «Un mundo más grande» y
+   «Experiencias» (`#blackbro`), más el enlace en la nav, la casilla en el mapa de
+   territorios y el enlace del pie.
+3. **La cañería para la key** — `netlify/functions/blackbro-chat.mjs`. La API Key
+   vive sólo ahí, como variable de entorno del sitio. Fer la carga y BLACKBRO
+   empieza a responder sin tocar una línea de código.
+
+**No está probado de punta a punta** y no se puede estar hasta que exista la key:
+lo que sí se comprobó es que la petición sale de la función, llega a `api.dify.ai`
+y vuelve interpretada correctamente (con una key falsa, Dify la rechaza y el chat
+lo enseña en pantalla). Eso es 🔵 BUILT, no E2E PASS.
+
+Todo en local, **sin commit ni push**.

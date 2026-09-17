@@ -790,3 +790,35 @@ h1,h2,h3{color:var(--crema);font-family:var(--ff-display);font-weight:700;line-h
   .exp__grid--marcas figcaption{left:1.2rem;right:1.2rem;bottom:1.05rem;font-size:.8rem;letter-spacing:.18em;gap:.3rem}
   .exp__grid--marcas figcaption i{font-size:.62rem;letter-spacing:.24em}
 }
+
+/* ============================================================
+   BLACKBRO · la puerta desde la home
+   La sección vive en la home; el producto vive en /blackbro.
+   (El resto del sistema visual de BLACKBRO está en blackbro.css)
+   ============================================================ */
+.bbentrada{position:relative;overflow:hidden;padding:clamp(4rem,7.5vw,7rem) 0;border-block:1px solid rgba(212,175,55,.14)}
+.bbentrada__media{position:absolute;inset:0;z-index:0}
+.bbentrada__media video,.bbentrada__media img{width:100%;height:100%;object-fit:cover;opacity:.42}
+.bbentrada__media::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,#070707 4%,rgba(7,7,7,.82) 38%,rgba(7,7,7,.42) 70%,rgba(7,7,7,.86) 100%);
+}
+.bbentrada .wrap{position:relative;z-index:2}
+.bbentrada__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(2rem,4vw,4rem);align-items:center}
+.bbentrada__wordmark{width:min(100%,380px);height:auto;margin:0 0 1.3rem;filter:drop-shadow(0 10px 34px rgba(0,0,0,.7))}
+.bbentrada__acciones{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center;margin-top:2rem}
+.bbentrada__jugadas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}
+.bbentrada__jugada{
+  display:flex;align-items:center;gap:.7rem;padding:.85rem .95rem;
+  border:1px solid var(--linea);background:rgba(12,12,12,.82);color:var(--texto);
+  font-family:var(--ff-display);font-weight:500;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+  transition:border-color .3s,color .3s,background .3s,transform .3s;
+}
+.bbentrada__jugada::before{content:'';width:5px;height:5px;border:1px solid var(--oro);transform:rotate(45deg);flex:0 0 auto}
+.bbentrada__jugada:hover{border-color:var(--oro);color:var(--oro-claro);background:rgba(212,175,55,.08);transform:translateY(-2px)}
+.bbentrada__nota{font-size:.74rem;color:var(--texto);letter-spacing:.06em;margin:1rem 0 0;text-shadow:0 1px 12px rgba(0,0,0,.95)}
+@media (max-width:900px){
+  .bbentrada__grid{grid-template-columns:minmax(0,1fr)}
+  .bbentrada__jugadas{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:480px){.bbentrada__jugadas{grid-template-columns:minmax(0,1fr)}}
