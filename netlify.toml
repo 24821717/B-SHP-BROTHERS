@@ -9,19 +9,20 @@
   # nunca en el navegador ni en el repo.
   functions = "netlify/functions"
 
-# El front llama siempre a /api/blackbro/chat. Este redirect lo lleva a la
-# funcion sin que el navegador sepa que hay una funcion detras.
-[[redirects]]
-  from = "/api/blackbro/*"
-  to = "/.netlify/functions/blackbro-chat"
-  status = 200
-  force = true
-
-# La conversacion nunca se cachea.
-[[headers]]
-  for = "/api/blackbro/*"
-  [headers.values]
-    Cache-Control = "no-store"
+# NO PONER AQUI UN REDIRECT A /api/blackbro/*.
+#
+# blackbro-chat.mjs es una funcion v2 y se rutea ella sola:
+#     export const config = { path: '/api/blackbro/chat' }
+# O sea que NO existe en /.netlify/functions/blackbro-chat.
+#
+# Aqui hubo un redirect forzado de /api/blackbro/* a esa ruta vieja. Al ser
+# `force`, ganaba sobre la ruta de la propia funcion y mandaba la peticion
+# justo donde no hay nada: 404 en produccion con la funcion bien desplegada.
+# En local no se notaba, porque scripts/dev.mjs rutea /api/blackbro el mismo
+# y no lee este archivo.
+#
+# La cabecera `no-store` tampoco hace falta: la pone la funcion en cada
+# respuesta (JSON_HEAD y el SSE del streaming).
 
 # Los vídeos sí van con caché larga: pesan mucho y, cuando cambian, cambian de
 # nombre.
