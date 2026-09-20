@@ -35,3 +35,6 @@ secciones nuevas/
 .env
 .env.*
 !.env.example
+
+# Leads de prueba del servidor local. No se versionan.
+.dev-leads.jsonl

@@ -822,3 +822,8 @@ h1,h2,h3{color:var(--crema);font-family:var(--ff-display);font-weight:700;line-h
   .bbentrada__jugadas{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:480px){.bbentrada__jugadas{grid-template-columns:minmax(0,1fr)}}
+
+/* La casilla de Founders 333 del mapa de marcas es la única que lleva a algún
+   sitio: se comporta como enlace sin dejar de verse como las otras ocho. */
+a.exp--link{display:block;text-decoration:none;color:inherit}
+a.exp--link:hover figcaption b{color:var(--oro-claro)}

@@ -552,3 +552,130 @@ y vuelve interpretada correctamente (con una key falsa, Dify la rechaza y el cha
 lo enseña en pantalla). Eso es 🔵 BUILT, no E2E PASS.
 
 Todo en local, **sin commit ni push**.
+
+---
+
+## Ronda 2026-09-18 · BLACKBRO · las notas de Fer · sin publicar
+
+El material llegó en `secciones nuevas/blackbro/`: siete imágenes anotadas y
+**`blocblackbro.txt`**, el QA de Fer. Las imágenes tienen el nombre escrito como
+instrucción («ESTA MARCE LE PUEDES QUITAR EL FONDO», «Centrado tmb el texto»…).
+
+### Maquetación — lo que pedían las imágenes
+1. **01 Hero** — el wordmark baja y se mueve a la izquierda, a la altura de los
+   lentes. Va con `transform`, para que no empuje al titular ni al botón.
+2. **03 · ¿En qué puedo ayudarte hoy?** — el cuerpo, centrado. Quedaba media
+   pantalla vacía a la derecha.
+3. **06 · Preguntas frecuentes** — centrado. La **respuesta** del acordeón se
+   queda alineada a la izquierda: centrar un párrafo que se lee lo vuelve decorativo.
+4. **07 · El cierre** — centrado entero: titular, pregunta, botón y firma.
+
+Los raíles laterales (`01`, `Play/Build/Discipline/Freedom`) **no se tocan**:
+son apoyo, van anclados a sus bordes.
+
+### Las dos imágenes con el fondo quitado
+- **02** — `strategist.jpg` → **`strategist.webp`**
+- **05** — `skyline.jpg` → **`player.webp`**
+
+Las dos llegaron en JPEG, que no guarda transparencia: una con fondo gris liso y
+la otra con el **damero quemado dentro del archivo**. El recorte se hizo en dos
+pasadas, y el criterio importa porque Fer lo dijo expreso —*«quitar solo el fondo
+blanco o gris, no las imágenes que están flotando»*:
+
+1. **Relleno desde los bordes.** Sólo se borra lo que está conectado con el borde
+   del lienzo. Por eso los cuatro paneles HUD y su texto se quedan enteros: un
+   umbral de color global se los habría comido.
+2. **Manchas encerradas, por tamaño.** El globo es semitransparente, así que había
+   damero *dentro* de él que la pasada 1 no alcanza. Se borran las manchas grandes
+   (8 manchas, 18.275 px); las pequeñas se quedan, porque una letra de los paneles
+   nunca llega a ese tamaño.
+
+Van en **WebP** —el único formato del sitio con transparencia— y por eso pesan
+207 KB y 290 KB en vez de 1,7 MB y 2,2 MB en PNG. `scripts/dev.mjs` ya servía
+`.webp`. Al perder el fondo dejan de ser foto-con-marco: se les quita el borde, el
+velo oscuro y el `object-fit:cover`, que les cortaría los paneles.
+
+Respaldo de las dos originales en `originales-sustituidos/ronda-18sep-blackbro/`.
+
+### Del QA de Fer (`blocblackbro.txt`): tres cosas ya estaban bien
+- 🔴 **«ENTER BLACKBRO no lleva al producto»** — **no es un fallo de destino.**
+  Los cuatro botones (nav, hero, cierre, barra de móvil) llevan `href="#chat"`, y
+  el JS hace `preventDefault` → scroll a la sección del chat → foco en el input.
+  Fer lo dedujo leyendo el HTML publicado: vio un ancla de la misma página y
+  entendió que no iba a ningún sitio. **Lo que sí estaba roto cuando él lo revisó
+  era el chat**, por el redirect forzado del `netlify.toml` (corregido en `98dd98e`).
+  Esa es la razón real de que el recorrido no se demostrara.
+- 🟠 **«Section 04 tiene demasiado preámbulo»** — ya no: el bloque quedó en el
+  titular y directo al chat, como pide el bloc.
+- 🟠 **Jerarquía del hero** — «Más preguntas. Mejores jugadas.» ya vive en el raíl
+  lateral como *ambient copy*. No compite con la promesa principal.
+
+### Verificado
+- Las 6 jugadas de la sección 03 **sí son launcher**: llevan al chat y precargan la
+  intención, sin enviar mensaje.
+- La respuesta del FAQ **«se mantiene mientras la pestaña esté abierta»** es cierta:
+  el `conversation_id` vive en `sessionStorage` (sobrevive a F5, muere al cerrar la
+  pestaña) y «Nuevo chat» lo borra. **KEEP**, no hay que corregir el copy.
+- Ni un solo enlace ni asset roto en `/blackbro`. El de Founders333 sigue comentado.
+
+### Sigue pendiente
+- [ ] La `DIFY_API_KEY`: sin ella no hay P0 ni E2E. Es lo único que separa a
+      BLACKBRO de dejar de estar 🟠 NEEDS WORK.
+- [ ] Si aparecen los **PNG originales** de las dos imágenes (con transparencia de
+      verdad), el recorte sale más limpio: el que se hizo parte de un JPEG y deja
+      algo de mota en los bordes de los paneles.
+- [ ] **Founders333**: el material ya llegó (`secciones nuevas/founders333/`, con
+      `foundersbloc.txt` — *MARCE BUILD HANDOFF AAA V1.0* — y el material del Drive).
+      Es la siguiente tanda, todavía sin empezar.
+
+---
+
+## Ronda 2026-09-18 (tarde) · FOUNDERS 333 · sin publicar
+
+La segunda sección que pidió Fer el 16-sep. Llegó el material completo:
+`foundersbloc.txt` (*MARCE BUILD HANDOFF AAA V1.0*, copy y taxonomía **FROZEN**),
+el VISUAL ASSET PLAN y cinco vídeos + siete imágenes del Drive.
+
+Construido: **`/founders333`**, las nueve bandas del plan visual con la misma reja
+de `/blackbro` —raíl, cuerpo, raíl—, porque son dos páginas del mismo mundo.
+El detalle está en **`docs/PROPUESTA-FOUNDERS333.md`**.
+
+### Lo que hay que saber en dos minutos
+- **Dos journeys separados, y no se mezclan nunca:** `GENESIS` (04 guarda → 08 envía
+  → 09 señal recibida) y `PARTNERSHIP` (07, formulario propio que nace cerrado).
+- **La Section 04 no envía nada.** Guarda en `sessionStorage` y la 08 lo recupera con
+  opción de editar. Si alguien se salta la 04, la 08 pide lo que falta.
+- **Un error no borra lo escrito.** En ninguno de los tres formularios.
+- **El hero cumple el brief literal:** «TABLE → GENESIS BUILDING, 8–9 s». Son dos
+  clips distintos encadenados con un fundido; dura **9,0 s**, mudo, en bucle y sin
+  texto quemado dentro del vídeo.
+- Los cuatro lockups venían sobre negro sólido: se les dio alfa y se recortaron a su
+  caja real. No se rehicieron con tipografía — son masters aprobados.
+- Los vídeos del Drive pesaban **21 MB**; reencodados, **7,1 MB**.
+- **Entra desde la home**: la casilla «Founders 333» del mapa de las nueve marcas
+  era decorativa y ahora es la puerta, más nav y pie. En `/blackbro` se descomentó
+  el enlace que quedó escrito el 17-sep esperando este día.
+
+### QA
+55/55 frases del copy congelado, literales. La lista **NO PUBLICAR** del handoff,
+limpia: sin precios, equity, ownership, revenue share, Founder Pool, governance,
+token/NFT, countdown ni «spots remaining»; **«300 FOUNDERS» no aparece** y las
+cuatro frases prohibidas del success tampoco. Los dos journeys probados de punta a
+punta y comprobado que llegan etiquetados por separado. HTML sin anidados rotos y
+**todo elemento que nace oculto lleva su regla `[hidden]`** — el fallo exacto que se
+coló con el modal de GOODS. Ni un asset ni un enlace roto.
+
+### BLOQUEANTE para que FOUNDERS 333 funcione
+- [ ] **A dónde van los leads.** La función `netlify/functions/founders-lead.mjs` está
+      escrita y validando; sólo falta decirle el destino, con **una** de estas dos:
+      `FOUNDERS_WEBHOOK_URL` (Make/Zapier/n8n) **o** `FOUNDERS_AIRTABLE_TOKEN` +
+      `FOUNDERS_AIRTABLE_BASE`. Se cargan en Netlify, no en el repo.
+      Hasta entonces la página **no miente**: avisa en pantalla y conserva lo escrito.
+- [ ] **QA en desktop y móvil de verdad**, que el handoff pide después del build.
+- [ ] Faltan `300_BUILDERS_MASTER`, `33_ARCHITECTS_MASTER` y el visual de la 07.
+      El handoff manda continuar con placeholder limpio antes que bloquear el build,
+      y eso se hizo: entran el día que existan, sin tocar nada más.
+
+### Para probarlo sin conectar nada
+`node scripts/dev.mjs` apunta la función a un buzón local: el formulario se recorre
+entero y los leads de prueba caen en `.dev-leads.jsonl` (no se versiona).
