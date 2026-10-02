@@ -88,13 +88,12 @@
   </div>
 </section>
 
-<!-- ============================== 02 · EL VÍDEO DE FER ==============================
-     Ronda 02-oct (bloc · 3): HERO → VIDEO → ESTO ES GENESIS. Nada entre el hero y el vídeo.
-     ⚠️ PENDIENTE: Fer pasa el archivo/link. Mientras no llegue, la banda nace OCULTA para
-     no publicar un hueco. Al llegar: poner el <source> (o el iframe si es un link) y
-     quitar `hidden`. Con ?vista=1 se ve el marco vacío para revisar el diseño.
+<!-- ============================== 02 · VSL FOUNDERS ==============================
+     Ronda 02-oct (tarde): el vídeo de Fer va donde lo marcó, entre el hero y GENESIS.
+     VSLFOUNDERS.mp4 llegó en HEVC 4K 60 fps (444 MB): Chrome y Firefox no reproducen
+     HEVC, así que se reencodó a H.264 1080p 30 fps con audio (archivo nuevo, regla nº 15).
      ================================================================== -->
-<section class="f3 f3video" id="video" hidden data-pendiente="video-fer">
+<section class="f3 f3video" id="video">
   <div class="f3__in">
     <div class="f3__rail f3__rail--l" data-rv>
       <span class="f3__num">02</span>
@@ -103,10 +102,9 @@
 
     <div class="f3__body">
       <div class="f3video__marco" data-rv>
-        <video controls playsinline preload="none">
-          <!-- <source src="../assets/video/founders333/fer-gen01.mp4" type="video/mp4"> -->
+        <video controls playsinline preload="none" poster="../assets/img/founders333/vsl-poster.jpg">
+          <source src="../assets/video/founders333/vsl-founders.mp4" type="video/mp4">
         </video>
-        <p class="f3video__falta">Vídeo de Fer · pendiente</p>
       </div>
     </div>
 
@@ -116,7 +114,7 @@
   </div>
 </section>
 
-<!-- ============================== 02 · ESTO ES GENESIS ==============================
+<!-- ============================== 03 · ESTO ES GENESIS ==============================
      BUILD (bloc · 02): Earth/Space Genesis master como fondo cinematográfico.
      Movimiento muy lento. Sin FX de gaming, sin portales, sin texto en el vídeo.
      ================================================================== -->
@@ -174,8 +172,8 @@
 </section>
 
 <!-- ============================== 04 · DOS FORMAS DE ENTRAR A GENESIS ==============================
-     Ronda 02-oct (bloc · 5): Builder vs Architect, claro. Cada card lleva al ÚNICO
-     formulario (Lista Genesis) con su rol preseleccionado (data-f3-rol).
+     Ronda 02-oct (bloc · 5): Builder vs Architect, claro. Desde la tarde del 02-oct
+     ya no hay formulario: cada card abre WhatsApp con su rol en el mensaje.
      ⚠️ NO PUBLICAR el precio de Architect: es «acceso por selección».
      ================================================================== -->
 <section class="f3" id="roles">
@@ -195,7 +193,7 @@
           <p class="f3rol__claim">Build from inside.</p>
           <p>Entrada a GEN01 como uno de los 300 Builders originales.</p>
           <div class="f3rol__cta">
-            <a class="btn btn--gold" href="#lista" data-f3-ir="lista" data-f3-rol="BUILDER" data-f3-cta="genesis" data-f3-loc="card_builder">Quiero ser Builder <i>&rarr;</i></a>
+            <a class="btn btn--gold" href="https://wa.me/5215574802651?text=Hola%2C%20quiero%20entrar%20a%20GEN01%20como%20BUILDER." target="_blank" rel="noopener" data-f3-wa="card_builder" data-f3-rol="BUILDER">Quiero ser Builder <i>&rarr;</i></a>
           </div>
         </article>
 
@@ -208,7 +206,7 @@
             ayudar a dar forma a lo que B-SHP construye después.
           </p>
           <div class="f3rol__cta">
-            <a class="btn btn--ghost" href="#lista" data-f3-ir="lista" data-f3-rol="ARCHITECT" data-f3-cta="genesis" data-f3-loc="card_architect">Quiero ser Architect <i>&rarr;</i></a>
+            <a class="btn btn--ghost" href="https://wa.me/5215574802651?text=Hola%2C%20quiero%20entrar%20a%20GEN01%20como%20ARCHITECT." target="_blank" rel="noopener" data-f3-wa="card_architect" data-f3-rol="ARCHITECT">Quiero ser Architect <i>&rarr;</i></a>
           </div>
         </article>
       </div>
@@ -280,47 +278,14 @@
   </div>
 </section>
 
-<!-- ============================== 06 · ¿QUÉ ESTÁS CONSTRUYENDO? ==============================
-     Ronda 02-oct (bloc · 8): SIN formulario. La pregunta se queda como narrativa,
-     para hacer pensar, no para registrar. Las categorías son sólo visuales
-     (las pinta founders333.js). El único formulario de la página es la Lista Genesis.
-     ================================================================== -->
-<section class="f3 f3--confondo f3pregunta" id="construyendo">
-  <div class="f3__media">
-    <video autoplay muted loop playsinline preload="none" poster="../assets/img/founders333/field-poster.jpg" data-lazy="../assets/video/founders333/field.mp4"></video>
-  </div>
-
-  <div class="f3__in">
-    <div class="f3__rail f3__rail--l" data-rv>
-      <span class="f3__num">06</span>
-      <p>¿Qué estás<br>construyendo?</p>
-    </div>
-
-    <div class="f3__body f3__body--centro">
-      <div class="stack" style="max-width:760px">
-        <p class="eyebrow" data-rv>Enough about us.</p>
-        <h2 class="h-lg" data-rv data-rv-d="1">¿Qué estás <span class="oro">construyendo?</span></h2>
-        <p class="lead" data-rv data-rv-d="2">No queremos saber solamente quién eres.</p>
-        <p class="punch punch--oro" data-rv data-rv-d="2">Queremos saber qué estás construyendo.</p>
-      </div>
-
-      <div class="f3cats f3cats--centro" id="f3Cats" aria-label="Qué se puede estar construyendo" data-rv data-rv-d="3"></div>
-    </div>
-
-    <div class="f3__rail f3__rail--r" data-rv data-rv-d="2">
-      <p>Negocio.<br>Marca.<br>Tech.<br>Proyecto.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== 07 · LA MESA ==============================
+<!-- ============================== 06 · LA MESA ==============================
      BUILD (bloc · 05): THE_TABLE_MASTER. Sensación humana/editorial.
      Sin cards, sin iconos, sin más explicación.
      ================================================================== -->
 <section class="f3" id="mesa">
   <div class="f3__in">
     <div class="f3__rail f3__rail--l" data-rv>
-      <span class="f3__num">07</span>
+      <span class="f3__num">06</span>
       <p>La mesa</p>
     </div>
 
@@ -354,7 +319,7 @@
   </div>
 </section>
 
-<!-- ============================== 08 · EL MUNDO QUE ESTAMOS CONSTRUYENDO ==============================
+<!-- ============================== 07 · EL MUNDO QUE ESTAMOS CONSTRUYENDO ==============================
      BUILD (bloc · 06): WORLD_IN_CONSTRUCTION_MASTER.
      ⚠️ Prohibido convertir esto en catálogo de Agent.IA, Axochi, HRC u otras
      verticales, y prohibido implicar que esas verticales son beneficios de GEN 01.
@@ -362,7 +327,7 @@
 <section class="f3" id="mundo">
   <div class="f3__in">
     <div class="f3__rail f3__rail--l" data-rv>
-      <span class="f3__num">08</span>
+      <span class="f3__num">07</span>
       <p>El mundo</p>
     </div>
 
@@ -400,25 +365,35 @@
   </div>
 </section>
 
-<!-- ============================== 09 · SKIN IN THE GAME ==============================
+<!-- ============================== 08 · SKIN IN THE GAME ==============================
      Ronda 02-oct (bloc · 12 + mensajes de Fer del 30-sep, 19:33):
      - va ANTES del formulario final, nunca en el hero ni compitiendo con GEN01;
      - LOS DOS banners de eToro (decisión de Marcela, 02-oct), lado a lado en
        escritorio y uno debajo del otro en móvil, como en el mensaje de Fer;
      - el código de cada banner es el ORIGINAL, sin modificar (no tocar el <a> ni el <img>);
      - NO inventar copy financiero, y NO es un beneficio incluido en los $3,333.
+     Ronda 02-oct (tarde): copy y aviso legal LITERALES de Fer; el loop que mandó va de fondo.
+     Un banner es vertical y otro horizontal: el CSS respeta su tamaño natural
+     (anula el 300×250 que traen escrito sin tocar el código del banner).
      ================================================================== -->
-<section class="f3 f3skin" id="skin">
+<section class="f3 f3--confondo f3skin" id="skin">
+  <div class="f3__media">
+    <video autoplay muted loop playsinline preload="none" poster="../assets/img/founders333/skin-poster.jpg" data-lazy="../assets/video/founders333/skin-fondo.mp4"></video>
+  </div>
+
   <div class="f3__in">
     <div class="f3__rail f3__rail--l" data-rv>
-      <span class="f3__num">09</span>
+      <span class="f3__num">08</span>
       <p>Skin in<br>the game</p>
     </div>
 
     <div class="f3__body f3__body--centro">
       <div class="stack" style="max-width:760px">
         <h2 class="h-lg" data-rv>Skin in <span class="oro">the game.</span></h2>
-        <p class="f3skin__linea" data-rv data-rv-d="1">Tu capital. Tu cuenta. Tus decisiones.</p>
+        <p class="lead" data-rv data-rv-d="1">Construir también significa aprender a poner algo propio en juego.</p>
+        <p class="f3skin__no" data-rv data-rv-d="1">No solo tiempo.<br>No solo ideas.</p>
+        <p class="f3skin__linea" data-rv data-rv-d="2">Decisiones reales. Recursos reales. Responsabilidad real.</p>
+        <p class="punch punch--oro" data-rv data-rv-d="2">Build with skin in the game.</p>
       </div>
 
       <div class="f3skin__banners" data-rv data-rv-d="2">
@@ -429,6 +404,8 @@
 <a href="https://med.etoro.com/B20882_A52718_TClick_SCXSOL.aspx" Target="_Top"><img border="0" src="https://med.etoro.com/B20882_A52718_TGet_SCXSOL.aspx" alt="" width="300" height="250" /></a>
         </div>
       </div>
+
+      <p class="f3skin__aviso">Enlace promocional. Invertir implica riesgo. eToro es una plataforma externa e independiente de B-SHP.</p>
     </div>
 
     <div class="f3__rail f3__rail--r" data-rv data-rv-d="2">
@@ -437,11 +414,10 @@
   </div>
 </section>
 
-<!-- ============================== 10 · LISTA GENESIS ==============================
-     GENESIS_FINAL_MASTER. lead_type = GENESIS. Ronda 02-oct (bloc · 13): es el
-     ÚNICO formulario de la página. Añade «¿Cómo quieres entrar a GEN01?»
-     (BUILDER / ARCHITECT), que las cards de la 04 dejan preseleccionado.
-     Sin checkout directo: APLICA → REVISAMOS → SI HAY FIT → CONTINUAMOS.
+<!-- ============================== 09 · GEN01 · ENTRA POR WHATSAPP ==============================
+     Ronda 02-oct (tarde): «¿A dónde te lleva el formulario? Mejor botón a WhatsApp,
+     más rápido, menos fricción». Ya NO hay formulario ni «Señal recibida»:
+     la aplicación sigue por WhatsApp. Copy literal del bloc de Fer.
      ================================================================== -->
 <section class="f3 f3--confondo" id="lista">
   <div class="f3__media">
@@ -450,7 +426,7 @@
 
   <div class="f3__in">
     <div class="f3__rail f3__rail--l" data-rv>
-      <span class="f3__num">10</span>
+      <span class="f3__num">09</span>
       <p>Lista<br>Genesis</p>
     </div>
 
@@ -461,107 +437,19 @@
         <h2 class="h-lg" data-rv data-rv-d="1">Los primeros 333 <span class="oro">empiezan aquí.</span></h2>
         <p class="lead" data-rv data-rv-d="2">No necesitas tener todo resuelto.</p>
         <p class="punch punch--oro" data-rv data-rv-d="2">Sí necesitas estar construyendo algo.</p>
-        <div class="f3flujo f3flujo--centro" data-rv data-rv-d="3">
-          <span>Aplica</span><i>&rarr;</i><span>Revisamos</span><i>&rarr;</i><span>Si hay fit</span><i>&rarr;</i><span>Continuamos</span>
-        </div>
       </div>
 
-      <form class="f3caja f3caja--centro" id="f3Lista" novalidate data-rv data-rv-d="3">
-        <fieldset class="f3rolsel">
-          <legend class="f3campo__et">¿Cómo quieres entrar a GEN01? <i>*</i></legend>
-          <div class="f3rolsel__ops">
-            <label class="f3rolsel__op"><input type="radio" name="entry_role" value="BUILDER"><span>Builder</span></label>
-            <label class="f3rolsel__op"><input type="radio" name="entry_role" value="ARCHITECT"><span>Architect</span></label>
-          </div>
-        </fieldset>
-
-        <fieldset style="border:0;margin:0 0 1.5rem;padding:0">
-          <legend class="f3campo__et" style="padding:0">Categoría <i>*</i></legend>
-          <div class="f3chips" id="f3Cats2" role="group" aria-label="Qué estás construyendo"></div>
-        </fieldset>
-
-        <label class="f3campo">
-          <span class="f3campo__et">¿Qué estás construyendo? <i>*</i></span>
-          <textarea id="f3Que2" name="what_are_you_building" maxlength="1200"
-            placeholder="Cuéntanos qué existe hoy, qué quieres crear o qué estás listo para empezar."></textarea>
-        </label>
-
-        <label class="f3campo">
-          <span class="f3campo__et">Nombre <i>*</i></span>
-          <input type="text" id="f3Nombre" name="name" autocomplete="name" maxlength="120">
-        </label>
-
-        <label class="f3campo">
-          <span class="f3campo__et">Email <i>*</i></span>
-          <input type="email" id="f3Email" name="email" autocomplete="email" maxlength="160" inputmode="email">
-        </label>
-
-        <label class="f3campo">
-          <span class="f3campo__et">País <i>*</i></span>
-          <input type="text" id="f3Pais" name="country" autocomplete="country-name" maxlength="80" list="f3Paises">
-          <datalist id="f3Paises">
-            <option value="México"></option><option value="Colombia"></option><option value="Argentina"></option>
-            <option value="Chile"></option><option value="Perú"></option><option value="España"></option>
-            <option value="Estados Unidos"></option><option value="Ecuador"></option><option value="Guatemala"></option>
-            <option value="Costa Rica"></option><option value="Panamá"></option><option value="República Dominicana"></option>
-            <option value="Uruguay"></option><option value="Paraguay"></option><option value="Bolivia"></option>
-            <option value="Venezuela"></option><option value="Honduras"></option><option value="El Salvador"></option>
-            <option value="Nicaragua"></option><option value="Puerto Rico"></option>
-          </datalist>
-        </label>
-
-        <label class="f3campo">
-          <span class="f3campo__et">WhatsApp <b>— opcional</b></span>
-          <input type="tel" id="f3Wa" name="whatsapp" autocomplete="tel" maxlength="40" inputmode="tel">
-        </label>
-
-        <p class="f3error" id="f3ErrL" hidden role="alert"></p>
-
-        <div class="f3acciones" style="justify-content:center">
-          <button class="btn btn--gold btn--lg" type="submit" id="f3Enviar">Únete a la Lista Genesis <i>&rarr;</i></button>
-        </div>
-
-        <p class="f3legal">
-          Unirte a la Lista Genesis expresa tu interés en GEN 01. No constituye
-          admisión a GEN 01 ni crea un acuerdo de inversión, propiedad o
-          participación económica.
-        </p>
-      </form>
+      <div class="f3wa" data-rv data-rv-d="3">
+        <p class="f3wa__linea">Los primeros 333 no llegan cuando todo está terminado.</p>
+        <p class="f3wa__punch">Llegan mientras lo estamos construyendo.</p>
+        <a class="btn btn--gold btn--lg" href="https://wa.me/5215574802651?text=Hola%2C%20quiero%20entrar%20a%20GEN01." target="_blank" rel="noopener" data-f3-wa="lista">Quiero entrar a GEN01 <i>&rarr;</i></a>
+        <p class="f3wa__nota">Continúa tu aplicación por WhatsApp.</p>
+      </div>
     </div>
 
     <div class="f3__rail f3__rail--r" data-rv data-rv-d="2">
       <p>Los primeros 333<br>empiezan aquí.<br>Un mundo real.</p>
       <span class="f3__mark"><img src="../assets/img/logo-wordmark-v2.png" alt=""></span>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== 11 · SEÑAL RECIBIDA ==============================
-     Estado de éxito. Nace oculto y lo revela el envío correcto.
-     ⚠️ Prohibido por el bloc: «WELCOME FOUNDER», «FELICIDADES»,
-     «YA ERES PARTE», «TU LUGAR ESTÁ RESERVADO». Nadie queda admitido aquí.
-     ================================================================== -->
-<section class="f3 f3--confondo f3ok" id="senal" hidden aria-live="polite">
-  <div class="f3__media">
-    <video autoplay muted loop playsinline preload="none" poster="../assets/img/founders333/network-poster.jpg" data-lazy="../assets/video/founders333/network.mp4"></video>
-  </div>
-
-  <div class="f3__in">
-    <div class="f3__rail f3__rail--l">
-      <span class="f3__num">11</span>
-      <p>Señal<br>recibida</p>
-    </div>
-
-    <div class="f3__body f3__body--centro">
-      <h2 class="f3ok__h">Señal recibida.</h2>
-      <p class="f3ok__sub">Tu interés en GEN 01 ha sido registrado.</p>
-      <p>Revisaremos lo que estás construyendo.</p>
-      <p>Si hay fit, continuaremos la conversación contigo por email o WhatsApp.</p>
-      <p class="f3ok__firma">Primero construye.<br>Lo demás viene después.</p>
-    </div>
-
-    <div class="f3__rail f3__rail--r">
-      <p>Señal recibida.<br>Continuamos.</p>
     </div>
   </div>
 </section>

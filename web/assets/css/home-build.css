@@ -86,3 +86,27 @@
 .f3entrada__comp{margin:.4rem 0 0;font-family:var(--ff-display);font-weight:600;font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--crema)}
 .f3entrada__comp i{font-style:normal;color:var(--oro);padding:0 .4em}
 .f3entrada .h-lg span{display:block}
+
+/* ---------- ronda 02-oct (tarde) ---------- */
+.sbuild__logo{display:block;width:min(260px,62%);height:auto;margin:0 auto .2rem}
+.sbuild__acceso{
+  margin-top:1rem;padding-top:1.6rem;border-top:1px solid var(--linea);
+  display:flex;flex-direction:column;align-items:center;gap:.45rem;max-width:46ch;
+}
+.sbuild__acceso p{margin:0;color:var(--texto);line-height:1.6}
+.sbuild__acceso .sbuild__acceso-tit{
+  font-family:var(--ff-display);font-weight:700;font-size:clamp(.8rem,1.3vw,.95rem);
+  letter-spacing:.22em;text-transform:uppercase;color:var(--oro-claro);margin-bottom:.35rem;
+}
+.sbuild__camino{margin-top:.9rem}
+
+/* Mapa del mundo: la casilla ancha de THE GAME enseña la imagen COMPLETA.
+   El archivo original (1600×640) traía franjas negras arriba y abajo; se
+   recortó a su contenido real (terr-thegame-completa.jpg, 1600×412) y la
+   casilla toma esa proporción. Antes el alto fijo de 230px la cortaba. */
+.territorios-mapa .terr--wide{aspect-ratio:1600 / 412;min-height:0;background:#0B0B0B}
+@media (max-width:640px){
+  /* en móvil la franja quedaría de ~90px: imagen arriba, rótulo debajo */
+  .territorios-mapa .terr--wide{aspect-ratio:auto;min-height:0;padding-top:25.75%;padding-bottom:4.6rem}
+  .territorios-mapa .terr--wide img{height:auto;bottom:auto;aspect-ratio:1600 / 412}
+}

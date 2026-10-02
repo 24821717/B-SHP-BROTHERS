@@ -14,6 +14,50 @@ Detalle en **`docs/PROPUESTA-BLACKBRO.md`**.
 
 ---
 
+## Ronda 2026-10-02 (tarde) · segunda tanda de Fer
+
+Origen: `RECOMENDACIONES/` (bloc + 7 capturas + 2 vídeos, 02-oct 16:46–18:06).
+
+### HOME
+- **START BUILDING:** el antetítulo «B-SHP BROTHERS» pasa a ser el **logo** (`imagen remplazo.jpeg`
+  → `assets/img/home/startbuilding-logo.png`, con transparencia y recortado). El botón se
+  sustituye por **ACCESO PARA PLAYERS DE THE GAME** + «Completa THE GAME…» +
+  `THE GAME → RITO7 → START BUILDING`. Ya no hay CTA pendiente de Skool en esta sección.
+- **Imagen cortada (THE GAME del mapa del mundo):** el archivo traía franjas negras
+  dentro y la casilla la recortaba a 5:1. Recortada a su contenido real
+  (`terr-thegame-completa.jpg`, 1600×412) y la casilla toma esa proporción. En móvil, la imagen
+  va arriba y el rótulo debajo. Original en `originales-sustituidos/ronda-02oct/`.
+- Los cambios que Marcela tenía sin subir (home: «Ambición…» fuera, casilla Goods,
+  orden del pie; BLACKBRO: subtítulo en español y cierre al final) **van en este mismo commit**.
+
+### FOUNDERS333
+- **VSL de Fer** entre el hero y GENESIS, donde lo marcó. Llegó en HEVC 4K 60 fps (444 MB):
+  reencodado a H.264 1080p 30 fps con audio → `vsl-founders.mp4`, 48,7 MB, `preload="none"`.
+- **Fuera «¿Qué estás construyendo?»** (sección completa).
+- **Sin formulario:** la banda GEN01 termina en «Quiero entrar a GEN01 →» → WhatsApp
+  (`wa.me/5215574802651`, el del sitio), con «Continúa tu aplicación por WhatsApp.».
+  Las cards Builder / Architect también abren WhatsApp con su rol en el mensaje.
+  Fuera también «Señal recibida» (ya no hay envío). La función `founders-lead.mjs` queda
+  en el repo **sin uso**.
+- **SKIN IN THE GAME:** copy y aviso legal literales de Fer, y su loop de fondo
+  (`skin-fondo.mp4`, 1,2 MB). Los dos banners se muestran a su tamaño natural: el CSS anula el
+  300×250 que traen escrito, sin tocar su código.
+- Bandas renumeradas: 01 hero · 02 VSL · 03 Genesis · 04 roles · 05 incluye · 06 mesa ·
+  07 mundo · 08 skin · 09 GEN01.
+
+### Para Fer
+- **`docs/PARA-FER-NETLIFY.md`**: cómo sacar la API Key de Dify y dónde ponerla
+  (`DIFY_API_KEY`, en el sitio de producción, después *Clear cache and deploy*).
+  Para Founders ya **no hay que configurar nada**: va por WhatsApp.
+
+### Pendiente
+- [ ] **Mirar los banners de eToro con ojos humanos.** Fer dice que uno es vertical y el otro
+      horizontal. No pude verlos desde aquí (el sistema bloquea descargar los banners).
+      El CSS los deja a su tamaño natural, pero falta confirmar a ojo que encajan.
+- [ ] Confirmar que **el WhatsApp de GEN01 es el +52 1 55 7480 2651** (el del sitio).
+
+---
+
 ## Ronda 2026-10-02 · HOME + FOUNDERS333 cierre V1 · sin commit ni push
 
 Origen: `RECOMENDACIONES/Nuevo Documento de texto.txt` (guardado el 02-oct) — tres
