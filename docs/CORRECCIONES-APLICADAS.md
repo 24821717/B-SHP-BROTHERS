@@ -25,3 +25,7 @@ se cierre una decisión nueva, se añade aquí.
 | 13 | **#01 — La tensión va sin CTA.** Sección cerrada. | /thegame · 01 | 08-sep |
 | 14 | **El cierre de /thegame**: imagen (lockup) sin fondo, titular «La intención no cuenta. La evidencia cuenta.», **un solo** botón de compra, y el volver en su franja debajo de la sección. | /thegame · closing | 08-sep |
 | 15 | **Un vídeo que cambia de contenido cambia de nombre.** `/assets/video/*` se sirve con caché de un año e `immutable`: reutilizar el nombre deja al cliente viendo el vídeo viejo y el navegador ni pregunta. | `assets/video/` | 08-sep |
+| 16 | **Founders333 tiene UN solo formulario** (Lista Genesis, con rol BUILDER/ARCHITECT). Nada de partnership ni formulario en «¿Qué estás construyendo?». | /founders333 | 02-oct |
+| 17 | **En Founders no se publica**: precio Architect, token, % o cifras del Founder Pool, rendimientos, utilidades, equity, revenue share, préstamos/devoluciones. Ni Founder Bible (es de START BUILDING). | /founders333 | 02-oct |
+| 18 | **eToro: los dos banners (decisión de Marcela, que corrige el «elige 1» de Fer), código original sin tocar**, dentro de SKIN IN THE GAME antes de la Lista Genesis. Nunca en el hero ni como beneficio de los $3,333. | /founders333 | 02-oct |
+| 19 | **Orden de la home:** THE GAME → BLACKBRO → START BUILDING → FOUNDERS333. | home | 02-oct |

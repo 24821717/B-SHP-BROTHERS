@@ -1,6 +1,6 @@
 # ESTADO — B-SHP BROTHERS
 
-**Última actualización:** 2026-09-17
+**Última actualización:** 2026-10-02
 **Estado:** **tres** páginas: la HOME (`/`), la sales page (`/thegame`) y **BLACKBRO
 (`/blackbro`) — nueva, 17-sep, en local**. Las dos primeras están publicadas.
 BLACKBRO está 🔵 BUILT: falta la `DIFY_API_KEY` de Fer para probar P0 y darla por E2E PASS.
@@ -13,6 +13,52 @@ Detalle en **`docs/PROPUESTA-BLACKBRO.md`**.
   **Falta renombrar el sitio**: `b-shopbrothers` → `bshpbrothers` (nota nº 1 de Fer).
 
 ---
+
+## Ronda 2026-10-02 · HOME + FOUNDERS333 cierre V1 · sin commit ni push
+
+Origen: `RECOMENDACIONES/Nuevo Documento de texto.txt` (guardado el 02-oct) — tres
+bloques de Fer: banners eToro, bloque nuevo en HOME y 15 cambios de cierre de Founders333.
+
+### HOME
+- **Orden nuevo al final de la home:** THE GAME → BLACKBRO → **START BUILDING** →
+  **FOUNDERS333 / GEN01** → cierre. BLACKBRO se movió desde detrás del mapa del mundo.
+- **START BUILDING** (`#startbuilding`, sección nueva): copy literal del bloc, $1,111 MXN ·
+  pago único. Panel enmarcado en oro: un escalón por encima de THE GAME, no otra puerta.
+  Estilos en `assets/css/home-build.css` (archivo nuevo).
+- **FOUNDERS333** (`#founders`, sección nueva): puerta a `/founders333` con el copy del hero
+  de la landing y el vídeo del hero de Founders de fondo (no se usa en ninguna otra parte de la home).
+
+### FOUNDERS333
+HERO → VÍDEO → GENESIS → BUILDER/ARCHITECT → QUÉ INCLUYE → ¿QUÉ ESTÁS CONSTRUYENDO? →
+LA MESA → EL MUNDO → SKIN IN THE GAME → LISTA GENESIS → SEÑAL RECIBIDA.
+- Header y footer unificados con la nav B-SHP (fuera FOUNDERS333 y BLACKBRO).
+  «Brothers» y «El Mundo» apuntan a `#brothers` y `#mundo` de la home, como en su propia nav.
+- Cards nuevas: Builder **$3,333 MXN · pago único**; Architect **acceso por selección**
+  (sin precio). Cada CTA lleva al formulario con el rol **preseleccionado**.
+- Sección nueva **Qué incluye GEN01** (Builder + Architect), literal del bloc.
+  Founder Pool sólo nombrado. «AGENTIA LABS» sin punto (registro nº 1).
+- **¿Qué estás construyendo?** ya no tiene formulario: queda la pregunta y las
+  categorías como elemento visual.
+- **Eliminada** «¿No buscas entrar a GEN01? / Construye con nosotros» y su formulario.
+- **SKIN IN THE GAME** antes de la Lista Genesis, con los DOS banners de eToro (código original).
+- **Lista Genesis = el único formulario.** Añade «¿Cómo quieres entrar a GEN01?»
+  (BUILDER / ARCHITECT), y encima: 300 BUILDERS · $3,333 MXN / 33 ARCHITECTS · ACCESO POR
+  SELECCIÓN y «Aplica → Revisamos → Si hay fit → Continuamos». Sin checkout.
+- `netlify/functions/founders-lead.mjs`: `entry_role` obligatorio; el tipo PARTNERSHIP
+  ya no se acepta. Probado contra el buzón local (válido, sin rol y PARTNERSHIP rechazados).
+
+### Pendiente de esta ronda
+- [ ] **El vídeo de Fer** (va después del hero). La banda existe pero **nace oculta** hasta que
+      llegue: poner el `<source>` en `web/founders333/index.html` (#video) y quitar `hidden`.
+      Con `?vista=1` se ve el marco vacío.
+- [x] ~~Qué banner de eToro~~ → **los dos** (decisión de Marcela, 02-oct), lado a lado en
+      SKIN IN THE GAME, apilados en móvil. Código original sin tocar.
+- [ ] **Link de Skool** para el CTA de START BUILDING (`data-pendiente="url-skool-start-building"`).
+- [ ] Ojo: la nav de la home lleva «The Game» a `/thegame/`, y el registro nº 9 decía `#thegame`.
+      Lo cambió Marcela en el commit del 02-oct; no se tocó.
+
+---
+
 
 ## Qué hay hoy
 

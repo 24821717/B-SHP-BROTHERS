@@ -1,5 +1,10 @@
 # FOUNDERS 333 — qué se construyó
 
+> **⚠️ Actualizado el 02-oct-2026 (cierre V1).** Las secciones 2–5 de abajo describen la
+> V1 del 18-sep. Desde el 02-oct: no hay journey PARTNERSHIP, la Section 04 ya no es
+> formulario ni usa `sessionStorage`, y el único lead es GENESIS con `entry_role`
+> (BUILDER / ARCHITECT). Orden y detalle actual: `ESTADO.md` → «Ronda 2026-10-02».
+
 **Fecha:** 18-sep-2026
 **Origen:** `secciones nuevas/founders333/` — *FOUNDERS333 — MARCE BUILD HANDOFF AAA V1.0*
 (`foundersbloc.txt`), el VISUAL ASSET PLAN de Fer

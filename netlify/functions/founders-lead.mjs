@@ -1,11 +1,13 @@
 /* ============================================================
    FOUNDERS 333  ·  captura de leads server-side
    ------------------------------------------------------------
-   Los dos journeys del handoff entran por aquí y salen separados
-   por `lead_type`. Nunca se mezclan:
+   Desde la ronda del 02-oct la landing tiene UNA sola conversión:
 
-        GENESIS      → interés en GEN 01 (Lista Genesis)
-        PARTNERSHIP  → «Construye con nosotros»
+        GENESIS  → interés en GEN 01 (Lista Genesis), con
+                   entry_role = BUILDER | ARCHITECT
+
+   «Construye con nosotros» (PARTNERSHIP) se eliminó de la página
+   por orden de Fer; esa ruta vivirá en Contacto/Partnerships.
 
         /founders333  →  /api/founders/lead  →  la base de B-SHP
                          (esta función)
@@ -65,6 +67,8 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 /* Taxonomías FROZEN del handoff. Si llega algo fuera de la lista,
    no se inventa una categoría nueva: se guarda vacía. */
+const ROLES = new Set(['BUILDER', 'ARCHITECT']);
+
 const CATEGORIAS = new Set([
   'NEGOCIO', 'MARCA', 'TECH', 'CONTENIDO', 'EXPERIENCIA',
   'COMUNIDAD', 'PROYECTO', 'CARRERA', 'OTRO'
@@ -91,8 +95,8 @@ export default async (request) => {
   }
 
   const tipo = texto(cuerpo.lead_type, 20).toUpperCase();
-  if (tipo !== 'GENESIS' && tipo !== 'PARTNERSHIP') {
-    return fallo('invalid', 'lead_type debe ser GENESIS o PARTNERSHIP.', 400);
+  if (tipo !== 'GENESIS') {
+    return fallo('invalid', 'lead_type debe ser GENESIS.', 400);
   }
 
   const email = texto(cuerpo.email, 160);
@@ -100,41 +104,27 @@ export default async (request) => {
   if (!name || name.length < 2) return fallo('invalid', 'Falta el nombre.', 400);
   if (!EMAIL.test(email)) return fallo('invalid', 'Email no válido.', 400);
 
-  /* Campos comunes a los dos tipos. */
-  const base = {
+  const rol = texto(cuerpo.entry_role, 20).toUpperCase();
+  const cat = texto(cuerpo.builder_category, 40).toUpperCase();
+  const que = texto(cuerpo.what_are_you_building, 1200);
+  const pais = texto(cuerpo.country, 80);
+  if (!ROLES.has(rol)) return fallo('invalid', 'entry_role debe ser BUILDER o ARCHITECT.', 400);
+  if (!pais) return fallo('invalid', 'Falta el país.', 400);
+  if (!que) return fallo('invalid', 'Falta qué está construyendo.', 400);
+
+  const lead = {
     lead_type: tipo,
+    entry_role: rol,
     name,
     email,
+    country: pais,
     whatsapp: texto(cuerpo.whatsapp, 40),
+    builder_category: CATEGORIAS.has(cat) ? cat : '',
+    what_are_you_building: que,
     source: texto(cuerpo.source, 80),
     campaign: texto(cuerpo.campaign, 80),
     created_at: new Date().toISOString()
   };
-
-  let lead;
-  if (tipo === 'GENESIS') {
-    const cat = texto(cuerpo.builder_category, 40).toUpperCase();
-    const que = texto(cuerpo.what_are_you_building, 1200);
-    const pais = texto(cuerpo.country, 80);
-    if (!pais) return fallo('invalid', 'Falta el país.', 400);
-    if (!que) return fallo('invalid', 'Falta qué está construyendo.', 400);
-    lead = {
-      ...base,
-      country: pais,
-      builder_category: CATEGORIAS.has(cat) ? cat : '',
-      what_are_you_building: que,
-      bottleneck: texto(cuerpo.bottleneck, 800)
-    };
-  } else {
-    const que = texto(cuerpo.what_do_you_want_to_build, 1200);
-    if (!que) return fallo('invalid', 'Falta qué quiere construir.', 400);
-    lead = {
-      ...base,
-      company_project: texto(cuerpo.company_project, 160),
-      opportunity_category: texto(cuerpo.opportunity_category, 80),
-      what_do_you_want_to_build: que
-    };
-  }
 
   /* ---------- A dónde va ---------- */
   const webhook = process.env.FOUNDERS_WEBHOOK_URL;
