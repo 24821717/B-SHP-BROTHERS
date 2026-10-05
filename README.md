@@ -1,13 +1,11 @@
 # B-SHP BROTHERS — Web
 
-Sitio de **B-SHP BROTHERS**. Estático: HTML, CSS y JS propios. Sin build, sin dependencias,
-sin backend ni base de datos.
+Sitio de **B-SHP BROTHERS**. Estático: HTML, CSS y JS propios. Sin build, sin dependencias.
 
-| Ruta | Qué es |
-|---|---|
-| `/` | `bshpbrothers.com` — la home del universo B-SHP |
-| `/thegame` | **THE GAME · Las Reglas del Juego** — la sales page |
-| `/legal/terminos` · `/legal/privacidad` · `/legal/contacto` | páginas legales |
+| Ruta | Qué es | Estado |
+|---|---|---|
+| `/` | `bshpbrothers.com` — la home del universo B-SHP | Placeholder (fase 2) |
+| `/thegame` | **THE GAME · Las Reglas del Juego** — la sales page | ✅ v1 lista para revisión |
 
 ---
 
@@ -18,28 +16,19 @@ cd web
 python3 -m http.server 3010
 ```
 
-→ http://localhost:3010/
+→ http://localhost:3010/thegame/
 
-Hace falta un servidor: abriendo el HTML con `file://` fallan el vídeo y algunas rutas.
+Hace falta un servidor: abriendo el HTML con `file://` fallan el video y algunas rutas.
 
----
+## Deploy en Netlify
 
-## Publicar en Netlify
+Ya está configurado en `netlify.toml` — **no hay que tocar nada**:
 
-Ya está todo configurado en `netlify.toml` — **no hay que tocar nada**:
-
-1. Netlify → *Add new site* → *Import an existing project* → GitHub → este repositorio.
-2. Netlify lee `netlify.toml` y publica la carpeta `web/`. **Build command: vacío.**
+1. Netlify → *Add new site* → *Import an existing project* → GitHub → este repo.
+2. Netlify lee `netlify.toml` y publica la carpeta `web/`. Build command: vacío.
 3. *Deploy*.
 
 Cada `git push` a `main` vuelve a desplegar solo.
-
-**Hace falta HTTPS** (Netlify lo da gratis): el checkout de Hotmart no abre su modal sobre `http`.
-
-### En otro hosting
-
-Ver **[DESPLIEGUE.md](DESPLIEGUE.md)**: instrucciones para servidor propio, con los ficheros de
-configuración ya listos en `deploy/` (Apache `.htaccess` y Nginx).
 
 ---
 
@@ -47,40 +36,35 @@ configuración ya listos en `deploy/` (Apache `.htaccess` y Nginx).
 
 ```
 .
-├── netlify.toml            configuración de deploy (publica web/)
-├── DESPLIEGUE.md           cómo subirlo a un servidor propio
-├── deploy/                 configuración lista para Apache y Nginx
-└── web/                    ← la raíz del sitio; esto es lo que se publica
+├── netlify.toml            configuración de deploy
+├── ESTADO.md               estado del proyecto y pendientes
+├── docs/
+│   ├── PROPUESTA-THEGAME.md    qué se construyó, decisiones y pendientes
+│   ├── referencia-cliente.jpeg referencia visual que mandó el cliente
+│   ├── referencia-home-bshp.jpeg
+│   └── character-master-bshp.jpg  canon del personaje (paleta y reglas de marca)
+└── web/
     ├── index.html          /
     ├── thegame/index.html  /thegame
-    ├── legal/              términos, privacidad y contacto
     └── assets/
-        ├── css/  js/
+        ├── css/thegame.css
+        ├── js/thegame.js
         ├── img/            gráfica de marca optimizada
-        └── video/          trailer, VSL y loops (H.264) + pósters
+        └── video/          trailer, VSL y loop del hero (H.264) + pósters
 ```
-
----
 
 ## Notas técnicas
 
-- **Vídeos** en H.264 optimizado para web (los originales del Drive venían en HEVC/4K, que
-  Chrome y Firefox no reproducen). El trailer y el VSL usan `preload="none"`: no descargan
-  nada hasta que el usuario da play. Los loops van sin audio y con
-  `autoplay muted loop playsinline`, para que reproduzcan en iOS.
-- **Caché:** `netlify.toml` sirve los vídeos con caché larga y el resto siempre revalidado.
-  Si sustituyes un vídeo, **cámbiale el nombre** — si no, los navegadores que ya lo tengan
-  seguirán viendo el antiguo.
-- **Checkout:** widget oficial de Hotmart. Si su script no carga, los botones se convierten
-  en enlaces directos al checkout — nunca queda un botón muerto.
+- **Videos:** los originales venían en HEVC/4K, que Chrome y Firefox no reproducen. En el repo
+  están las versiones H.264 optimizadas para web. Los archivos fuente se quedan fuera del repo
+  (`.gitignore`) porque superan el límite de 100 MB de GitHub.
+- El trailer y el VSL usan `preload="none"`: no descargan nada hasta que el usuario da play.
+- El loop del hero va sin audio y con `autoplay muted loop playsinline`, para que reproduzca en iOS.
+- **Checkout:** widget oficial de Hotmart (`pay.hotmart.com/K107291428B`). Si el script de Hotmart
+  no carga, los botones se convierten en enlaces directos al checkout — nunca queda un botón muerto.
 - Tipografías Poppins + Cinzel desde Google Fonts, con fallbacks de sistema.
-- Responsive, navegable con teclado, respeta `prefers-reduced-motion`.
+- Diseño responsive, navegable con teclado y respeta `prefers-reduced-motion`.
 
 ## Paleta oficial
 
-`#0B0B0B` negro obsidiana · `#1A1A1A` carbón · `#D4AF37` oro antiguo · `#B8860B` ámbar ·
-`#2ECC71` verde energía
-
----
-
-Desarrollado por **AGENTIA LABS**
+`#0B0B0B` negro obsidiana · `#1A1A1A` carbón · `#D4AF37` oro antiguo · `#B8860B` ámbar · `#2ECC71` verde energía

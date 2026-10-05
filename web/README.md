@@ -36,6 +36,6 @@ Con eso `dominio.com` sirve la home y `dominio.com/thegame` la sales page.
 - El trailer y el VSL usan `preload="none"`: no pesan nada hasta que el usuario da play.
 - El loop del hero va sin audio, `autoplay muted loop playsinline` (así reproduce en iOS).
 - Los videos originales venían en HEVC/4K; se transcodificaron a H.264 porque Chrome y
-  Firefox no reproducen HEVC. Los originales quedan en poder del estudio.
+  Firefox no reproducen HEVC. Los originales siguen intactos en `contenido drive/`.
 - Fuentes: Poppins + Cinzel desde Google Fonts, con fallbacks de sistema.
 - Accesible con teclado, respeta `prefers-reduced-motion`.

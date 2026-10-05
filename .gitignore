@@ -1,6 +1,40 @@
+# ---- Material fuente pesado: se queda en local, no va al repo ----
+# (los originales del Drive pesan ~600 MB y GitHub rechaza archivos >100 MB;
+#  en web/assets/video/ están las versiones web ya optimizadas)
+contenido drive/
+contenido/
+AGENTIALABS_TOKENIZACION.pdf
+
+# ---- Material fuente de la HOME (pesa ~700 MB) ----
+pagina ppal/
+
+# ---- Feedback del cliente en capturas (material interno) ----
+RECOMENDACIONES/
+
+# ---- Assets originales que se sustituyeron (respaldo local) ----
+originales-sustituidos/
+
+# ---- Brief interno del cliente ----
+# El repo es público. Si lo pasas a privado, borra esta línea para versionarlo.
+fer.txt
+
+# ---- Sistema ----
 .DS_Store
 Thumbs.db
 desktop.ini
 *.log
 .netlify/
 node_modules/
+
+# ---- Brief interno de las secciones nuevas (el repo es publico) ----
+secciones nuevas/
+
+# ---- Claves. NUNCA al repo. ----
+# La DIFY_API_KEY de BLACKBRO vive en Netlify (Site configuration >
+# Environment variables) y, en local, en un .env que no se versiona.
+.env
+.env.*
+!.env.example
+
+# Leads de prueba del servidor local. No se versionan.
+.dev-leads.jsonl

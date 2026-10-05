@@ -18,6 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@400;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/home-v2.css">
+<link rel="stylesheet" href="assets/css/home-build.css">
 </head>
 <body>
 
@@ -28,10 +29,12 @@
       <img src="assets/img/logo-wordmark-v2.png" alt="B-SHP BROTHERS">
     </a>
     <nav class="nav__links" id="navLinks">
+      <!--<a href="blackbro/index.html">BlackBro</a>
+      <a href="founders333/index.html">Founders 333</a>-->
       <a href="#brothers">Brothers</a>
       <a href="#mundo">El mundo</a>
       <a href="#goods">Goods</a>
-      <a href="#thegame">The Game</a>
+      <a href="/thegame/">The Game</a>
     </nav>
     <div class="nav__cta">
       <a class="btn btn--gold" href="#mundo" data-track="descubre_click" data-track-from="nav">Descubre B-SHP <i>&rarr;</i></a>
@@ -105,7 +108,6 @@
         <p class="lead" data-rv data-rv-d="3">Los que quieren construir más sin dejar de vivir.</p>
 
         <div class="highlight" data-rv data-rv-d="3">
-          <p>Ambición sin dejar de vivir.</p>
           <p>Libertad sin dejar de construir.</p>
           <p>Individualidad sin caminar solo.</p>
         </div>
@@ -135,7 +137,7 @@
 
       <p class="lead" data-rv data-rv-d="2">Distintas historias.<br>Distintas industrias.<br>Distintas maneras de ver el mundo.</p>
       <p class="lead" data-rv data-rv-d="3">Pero algo en común:</p>
-      <p class="punch" data-rv data-rv-d="3">Hacer cosas que valgan la pena<br>con gente que valga la pena conocer.</p>
+      <p class="punch" data-rv data-rv-d="3">Hacer cosas que valgan la pena<br>con gente que valga la pena.</p>
 
       <p class="lead" data-rv data-rv-d="4">Negocios. Ideas. Viajes. Colaboraciones.</p>
       <p class="lead" data-rv data-rv-d="4">Errores. Conversaciones. Y sí, echar cotorreo.</p>
@@ -181,11 +183,11 @@
       <figure data-rv data-rv-d="1">
         <video autoplay muted loop playsinline preload="none" poster="assets/img/home/life-1-poster.jpg" data-lazy="assets/video/home/life-1.mp4"></video>
       </figure>
+       <figure data-rv data-rv-d="3">
+        <video autoplay muted loop playsinline preload="none" poster="assets/img/home/life-3-poster.jpg" data-lazy="assets/video/home/life-3.mp4"></video>
+      </figure>
       <figure data-rv data-rv-d="2">
         <video autoplay muted loop playsinline preload="none" poster="assets/img/home/life-2-poster.jpg" data-lazy="assets/video/home/life-2.mp4"></video>
-      </figure>
-      <figure data-rv data-rv-d="3">
-        <video autoplay muted loop playsinline preload="none" poster="assets/img/home/life-3-poster.jpg" data-lazy="assets/video/home/life-3.mp4"></video>
       </figure>
     </div>
   </div>
@@ -238,19 +240,20 @@
         <span class="terr__txt"><b>Business</b><i>Construcción</i></span>
       </a>
       <a class="terr" href="#lifestyle" data-rv data-rv-d="2">
-        <img src="assets/img/home/terr-lifestyle.jpg" alt="" loading="lazy">
-        <span class="terr__txt"><b>Lifestyle</b><i>Vida</i></span>
+        <img src="assets/img/home/terr-goods.jpg" alt="" loading="lazy">
+        <span class="terr__txt"><b>goods</b><i>Vida</i></span>
       </a>
       <a class="terr" href="#experiencias" data-rv data-rv-d="3">
         <img src="assets/img/home/terr-experiences.jpg" alt="" loading="lazy">
         <span class="terr__txt"><b>Experiences</b><i>Experiencias</i></span>
       </a>
-      <a class="terr" href="#goods" data-rv data-rv-d="5">
-        <img src="assets/img/home/terr-goods.jpg" alt="" loading="lazy">
-        <span class="terr__txt"><b>Goods</b><i>Identidad</i></span>
+      <a class="terr" href="blackbro/index.html" data-rv data-rv-d="4" data-track="blackbro_click" data-track-from="mapa_mundo">
+        <img src="assets/img/home/terr-blackbro.jpg" alt="" loading="lazy">
+        <span class="terr__txt"><b>BlackBro</b><i>Tu AI brother</i></span>
       </a>
+      
       <a class="terr terr--wide" href="#thegame" data-rv data-rv-d="5">
-        <img src="assets/img/home/terr-thegame.jpg" alt="" loading="lazy">
+        <img src="assets/img/home/terr-thegame-completa.jpg" alt="" loading="lazy">
         <span class="terr__txt"><b>The Game</b><i>El juego</i></span>
       </a>
     </div>
@@ -267,7 +270,7 @@
 
     <div class="exp__grid exp__grid--marcas">
       <figure class="exp" data-rv><img src="assets/img/marcas/01-bshp-brothers.jpg" alt="B-SHP Brothers" loading="lazy"><figcaption><b>B-SHP Brothers</b><i>Un mundo más grande</i></figcaption></figure>
-      <figure class="exp" data-rv data-rv-d="2"><img src="assets/img/marcas/02-founders-333.jpg" alt="Founders 333" loading="lazy"><figcaption><b>Founders 333</b><i>Construcción</i></figcaption></figure>
+      <a class="exp exp--link" href="founders333/index.html" data-rv data-rv-d="2" data-track="founders_click" data-track-from="mapa_marcas"><img src="assets/img/marcas/02-founders-333.jpg" alt="Founders 333" loading="lazy"><figcaption><b>Founders 333</b><i>Construcción</i></figcaption></a>
       <figure class="exp" data-rv data-rv-d="3"><img src="assets/img/marcas/03-agentia-labs.jpg" alt="Agentia Labs" loading="lazy"><figcaption><b>Agentia Labs</b><i>Tecnología</i></figcaption></figure>
       <figure class="exp" data-rv><img src="assets/img/marcas/04-high-rollers.jpg" alt="High Rollers Club" loading="lazy"><figcaption><b>High Rollers Club</b><i>Cultura</i></figcaption></figure>
       <figure class="exp" data-rv data-rv-d="2"><img src="assets/img/marcas/05-axochi.jpg" alt="Axochi" loading="lazy"><figcaption><b>Axochi</b><i>Experiencias</i></figcaption></figure>
@@ -505,6 +508,118 @@
   </div>
 </section>
 
+<!-- ============================== 07b BLACKBRO · la puerta al agente ==============================
+     Sección nueva (17-sep). Desde el 02-oct va DESPUÉS de THE GAME (orden de Fer:
+     THE GAME → BLACKBRO → START BUILDING → FOUNDERS333).
+     THE GAME = entra y ejecuta · BLACKBRO = encuentra tu siguiente jugada.
+     La sección es la PUERTA: el producto vive entero en /blackbro.
+     Las seis jugadas son las del BUILD MASTER V1.1 y están congeladas.
+     ========================================================================= -->
+<section class="bbentrada" id="blackbro" data-view="blackbro_view">
+  <div class="bbentrada__media">
+    <video autoplay muted loop playsinline preload="none" poster="assets/img/blackbro/final-poster.jpg" data-lazy="assets/video/blackbro/final.mp4"></video>
+  </div>
+
+  <div class="wrap">
+    <div class="bbentrada__grid">
+      <div class="stack">
+        <p class="eyebrow" data-rv>Nuevo en el mundo B-SHP</p>
+
+        <img class="bbentrada__wordmark" src="assets/img/blackbro/wordmark.png" alt="BLACKBRO" data-rv data-rv-d="1">
+
+        <h2 class="h-lg" data-rv data-rv-d="1">Tu AI brother <span class="oro">en el juego.</span></h2>
+
+        <p class="lead" data-rv data-rv-d="2">
+          BLACKBRO identifica qué está frenando tu juego, convierte el bottleneck
+          en una decisión y la decisión en una siguiente jugada ejecutable.
+        </p>
+
+        <p class="lead" data-rv data-rv-d="3">No para motivarte.</p>
+        <p class="punch punch--oro" data-rv data-rv-d="3">Para llevarte a una decisión y una siguiente jugada.</p>
+
+        <div class="bbentrada__acciones" data-rv data-rv-d="4">
+          <a class="btn btn--gold btn--lg" href="blackbro/index.html" data-track="blackbro_enter_click" data-track-from="seccion_home">Enter BlackBro <i>&rarr;</i></a>
+          <a class="btn btn--ghost" href="blackbro/index.html#que-es" data-track="blackbro_click" data-track-from="seccion_home_que_es">Qué es BlackBro</a>
+        </div>
+      </div>
+
+      <div data-rv data-rv-d="2">
+        <div class="bbentrada__jugadas">
+          <a class="bbentrada__jugada" href="blackbro/index.html?play=bottleneck">ENCUENTRA MI BOTTLENECK</a>
+          <a class="bbentrada__jugada" href="blackbro/index.html?play=next_play">DEFINE MI NEXT PLAY</a>
+          <a class="bbentrada__jugada" href="blackbro/index.html?play=tres_nn">AY&Uacute;DAME CON MIS 3NN</a>
+          <a class="bbentrada__jugada" href="blackbro/index.html?play=board">CREA MI BOARD</a>
+          <a class="bbentrada__jugada" href="blackbro/index.html?play=proof">REVISA MI PROOF</a>
+          <a class="bbentrada__jugada" href="blackbro/index.html?play=sobre_bshp">PREGUNTA SOBRE B-SHP</a>
+        </div>
+        <p class="bbentrada__nota">Elige una jugada y la conversaci&oacute;n empieza ah&iacute;. Tambi&eacute;n puedes escribir directo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 12c START BUILDING · el escalón después de THE GAME ==============================
+     Bloque nuevo (02-oct, bloc de Fer). Narrativa: START BUILDING = CONSTRUYE.
+     Copy literal del bloc: sin módulos, beneficios, garantías ni claims añadidos.
+     Es un escalón SUPERIOR a THE GAME, no otra puerta de entrada.
+     Ronda 02-oct (tarde): el antetítulo pasa a ser el logo B-SHP BROTHERS y el botón
+     se sustituye por el acceso para players de THE GAME (sin CTA de compra aquí).
+     ================================================================== -->
+<section class="sec sbuild" id="startbuilding" data-view="startbuilding_view">
+  <div class="wrap">
+    <div class="sbuild__panel" data-rv>
+      <div class="sbuild__in">
+        <img class="sbuild__logo" src="assets/img/home/startbuilding-logo.png" alt="B-SHP BROTHERS" width="520" height="220">
+        <h2 class="h-lg sbuild__h" data-rv data-rv-d="1">Start <span class="oro">Building.</span></h2>
+
+        <p class="lead center" data-rv data-rv-d="2">THE GAME te enseñó que puedes ejecutar.</p>
+        <p class="punch punch--oro center" data-rv data-rv-d="2">Ahora convierte esa ejecución en construcción.</p>
+
+        <ol class="sbuild__ruta" data-rv data-rv-d="3" aria-label="La ruta">
+          <li>Your Next Game</li><li>The Board</li><li>3NN</li><li>Build Loop</li><li>Proof</li>
+        </ol>
+
+        <ol class="sbuild__loop" data-rv data-rv-d="3" aria-label="El loop">
+          <li>Decide</li><li>Build</li><li>Prove</li><li>Review</li><li>Next</li>
+        </ol>
+
+        <p class="sbuild__precio" data-rv data-rv-d="4">$1,111 MXN <i>&middot;</i> Pago único</p>
+
+        <div class="sbuild__acceso" data-rv data-rv-d="4">
+          <p class="sbuild__acceso-tit">Acceso para players de THE GAME</p>
+          <p>Completa THE GAME. Produce tu primera evidencia.</p>
+          <p>Después, continúa construyendo con START BUILDING.</p>
+          <ol class="sbuild__loop sbuild__camino" aria-label="El camino">
+            <li>The Game</li><li>RITO7</li><li>Start Building</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 12d FOUNDERS333 / GEN01 · la puerta a /founders333 ==============================
+     Narrativa: FOUNDERS333 = CONSTRUYE DESDE DENTRO. Copy tomado tal cual del hero de
+     /founders333; aquí no se publica precio ni nada que la landing no diga.
+     ================================================================== -->
+<section class="f3entrada" id="founders" data-view="founders_home_view">
+  <div class="f3entrada__media">
+    <video autoplay muted loop playsinline preload="none" poster="assets/img/founders333/hero-poster.jpg" data-lazy="assets/video/founders333/hero.mp4"></video>
+  </div>
+  <div class="wrap">
+    <div class="center stack f3entrada__in">
+      <img class="f3entrada__lockup" src="assets/img/founders333/lockup-founders333.png" alt="FOUNDERS 333" data-rv>
+      <img class="f3entrada__gen" src="assets/img/founders333/lockup-gen01.png" alt="GEN 01 — GENESIS" data-rv data-rv-d="1">
+      <p class="f3entrada__comp" data-rv data-rv-d="1">300 Builders <i>&middot;</i> 33 Architects</p>
+      <h2 class="h-lg" data-rv data-rv-d="2">Primero construye. <span class="oro">Lo demás viene después.</span></h2>
+      <p class="lead center" data-rv data-rv-d="3">Los primeros 333 no llegan cuando todo está terminado.<br>Llegan mientras lo estamos construyendo.</p>
+      <div data-rv data-rv-d="4">
+        <a class="btn btn--gold btn--lg" href="founders333/index.html" data-track="founders_click" data-track-from="seccion_home">Únete a la Lista Genesis <i>&rarr;</i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="final" id="entrar">
   <div class="final__media">
     <video autoplay muted loop playsinline preload="none" poster="assets/img/home/final-poster.jpg" data-lazy="assets/video/home/final.mp4"></video>
@@ -540,6 +655,9 @@
         <a href="#brothers">Brothers</a>
         <a href="#goods">Goods</a>
         <a href="legal/contacto.html">Contacto</a>
+        <a href="blackbro/index.html" data-track="blackbro_click" data-track-from="footer">BlackBro</a>
+        <a href="founders333/index.html" data-track="founders_click" data-track-from="footer">Founders 333</a>
+        
       </nav>
       <div class="social">
         <a href="https://www.instagram.com/bshp.bros?igsi=MWVrZGQ1bGd3djQ1eg==" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.1 0 4.1.06 1 .05 1.7.2 2.3.44a4.6 4.6 0 011.7 1.1 4.6 4.6 0 011.1 1.7c.24.6.4 1.3.44 2.3.05 1 .06 1.4.06 4.1s0 3.1-.06 4.1c-.05 1-.2 1.7-.44 2.3a4.9 4.9 0 01-2.8 2.8c-.6.24-1.3.4-2.3.44-1 .05-1.4.06-4.1.06s-3.1 0-4.1-.06c-1-.05-1.7-.2-2.3-.44a4.9 4.9 0 01-2.8-2.8c-.24-.6-.4-1.3-.44-2.3C2.01 15.1 2 14.7 2 12s0-3.1.06-4.1c.05-1 .2-1.7.44-2.3a4.9 4.9 0 012.8-2.8c.6-.24 1.3-.4 2.3-.44C8.9 2.01 9.3 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zM17.8 6.9a1.17 1.17 0 11-2.34 0 1.17 1.17 0 012.34 0z"/></svg></a>
